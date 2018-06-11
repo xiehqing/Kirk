@@ -2,53 +2,13 @@
 自己琢磨的一套框架。
 
 ## 框架运行流程：
-1. 入口文件
+1. 入口文件(具体项目目录下)
 2. 定义常量（框架所带的目录或者是函数库、第三方类库所带的目录）
 3. 引入函数库
-4. 自动加载类（自动加载一些文件）
+4. 定义核心文件
+5. 定义配置文件（注意各目录下配置文件的优先级，项目目录《 核心文件《 根目录 ）
+4. 自动加载类（自动加载一些文件，框架类、请求类等等）
 5. 启动框架
-6. 路由解析（路由类，解析url）
-7. 加载控制器（通过路由解析的url找到所需加载的控制器和方法）
-8. 返回结果（通过运算，返回需要的结果）
-
-## 公共模块
-
-### 公共函数function.php
-* p方法，输出对应的变量或者数组,p($var)
-* 二分查找,bin_sch($array,$low,$high,$k)
-* 顺序查找（数组里查找某个元素）,seq_sch($array, $n,  $k)
-* 线性表的删除（数组中实现） ,delete_array_element($array , $i)
-* 冒泡排序（数组排序）,bubble_sort($array)
-* 快速排序（数组排序）,quick_sort($array)
-
-#### PHP内置字符串函数实现  
-* 字符串长度 ,strlen ($str)
-* 截取子串,substr($str, $start, $length=NULL)  
-* 字符串翻转,strrev($str)
-* 字符串比较,strcmp($s1,  $s2)  
-* 查找字符串,strstr($str, $substr)
-* 字符串替换,str_replace($substr , $newsubstr, $str)  
-
-#### 自实现字符串处理函数 
-* 插入一段字符串, str_insert($str, $i , $substr)  
-* 删除一段字符串, str_delete($str , $i, $j)  
-* 复制字符串, strcpy($s1, $s2 ) 
-* 连接字符串, strcat($s1 , $s2) 
-* 简单编码函数（与php_decode函数对应）, php_encode($str)
-* 简单解码函数（与php_encode函数对应）, php_decode($str)
-* 简单加密函数（与php_decrypt函数对应）, php_encrypt($str)  
-* 简单解密函数（与php_encrypt函数对应）, php_decrypt($str) 
-
-#### 微信公众号授权相关的轮子
-* 先填入公众号的token、appid、appsecret、indexurl，然后在需要授权的地方调用授权函数Auth()即可。
-
-### 短链接生成算法short_url.php
-```
-//测试  
-$url = "http://huangkuankuan.cn/projects/";
-$short = new \core\common\short_url::short($url);
-print_r($short);
-```
 
 # 框架修改方向大纲 V2.0
 * 由根目录下单入口改为各应用目录下入口
@@ -57,40 +17,28 @@ print_r($short);
 ## 改动后框架目录结构
 ```
 -Kirk
-|---app-A  #应用A
-|   |---class
-|   |---config
-|   |---ctrl
-|   |---interceptor
-|   |---plugin
-|   |---view
-|   | ...
-|
-|---app-B   #应用B
-|   |---class
-|   |---config
-|   |---ctrl
-|   |---interceptor
-|   |---plugin
-|   |---view
-|   | ...
+|---app-A  #应用A（同理可部署项目B、C、D...）
+|   |---class           # 类文件
+|   |---config          # 项目内配置文件
+|   |---ctrl            # 控制器
+|   |---interceptor     # 拦截器
+|   |---plugin          # 视图插件
+|   |---view            # 视图文件
+|   |---index.php       # 项目A的入口文件
 |
 |---core    # 核心文件
-|   |---class
-|   |---config
-|   |---ctrl
-|   |---interceptor
-|   |---plugin
-|   |---view
-|   | ...
+|   |---class           # 通用的类文件
+|   |---config          # 通用配置文件
+|   |---ctrl            # 通用的控制器
+|   |---interceptor     # 通用的拦截器
+|   |---plugin          # 通用的视图插件
+|   |---view            # 通用的视图文件
 |
-|---config  # 本地配置文件（优先级大于core目录下的config，开发者本地部署）
-|   |---class
-|   |---config
-|   |---ctrl
-|   |---interceptor
-|   |---plugin
-|   |---view
+|---config  # 本地配置文件（开发者本地部署）
+|   |---common.php
+|   |---database.php
+|   |---interceptor.php
+|   |---pay.php
 |   | ...
 |
 |---system  # 系统文件
@@ -99,13 +47,48 @@ print_r($short);
 |   |---interceptor
 |   |---plugin
 |   |---view
+|   |---functions.php   # 系统方法
 |   | ...
 |
-|---log     #日志文件
+|---log                 #日志文件
 |
-|---vendor  #外部依赖包
+|---vendor              #外部依赖包
 |
 |--- ...
 ```
+## Kirk V1.0 
+* 采用的单入口文件（根目录下）
+* 配置文件统一在/config目录下(根目录下)
+* Model模型采用Medoo依赖包，通过composer安装管理
+
+## Kirk V2.0 
+借鉴了RSF框架[https://github.com/suxianbaozi/RSF/]
+* 多应用模式，直接在nginx中重写路由指向对应的应用目录
+```
+server {
+        listen  80;
+        server_name domain.com;
+        index index.php index.html index.htm default.php;
+        root /home/kirk/github/kirk/app-home;
+        rewrite . /index.php;
+        location ~ .*\.(php|php5)?$ {
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+        }
+}
+```
+其他应用部署同理。
+* 多层配置，各目录下的配置文件优先级，项目目录 大于 核心文件 大于 根目录，根目录下的配置文件单独拿出，适用于开发者在开发环境调试，（或者作为重要的配置文件单独配置）
+
+* model分割到core的类文件中
+* 根目录下的Tool.php文件，辅助开发者快速建立相应的文件目录、Model等等。如建立app-home目录下的index控制器和视图文件，
+```
+php Tool.php create-page app-home Home\\Index HomeFrameView
+```
+注意，nginx重写路由绝对不允许指向根目录，线上环境必须删除Tool.php
+
+
+
 修改于2018.06.01，儿童节快乐。
-Kirk V2.0 借鉴了RSF框架[https://github.com/suxianbaozi/RSF/]

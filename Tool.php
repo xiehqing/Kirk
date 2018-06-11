@@ -8,8 +8,7 @@
 
 # 开发环境使用，线上环境需要删除该文件
 # 使用方法：
-#   如建立app-kirk目录下的index控制器和视图文件，php Tool.php create-page app-kirk Kirk\\Index KirkFrameView
-
+#   如建立app-home目录下的index控制器和视图文件，php Tool.php create-page app-home Home\\Index HomeFrameView
 
 error_reporting(E_ALL & ~E_NOTICE);
 
