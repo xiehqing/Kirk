@@ -49,3 +49,62 @@ $url = "http://huangkuankuan.cn/projects/";
 $short = new \core\common\short_url::short($url);
 print_r($short);
 ```
+
+# 框架修改方向大纲
+* 由根目录下单入口改为各应用目录下入口
+* 模型层不再使用Medoo依赖包，放到core目录下统一管理
+
+## 改动后框架目录结构
+```
+-Kirk
+|---app-A  #应用A
+|   |---class
+|   |---config
+|   |---ctrl
+|   |---interceptor
+|   |---plugin
+|   |---view
+|   | ...
+|
+|---app-B   #应用B
+|   |---class
+|   |---config
+|   |---ctrl
+|   |---interceptor
+|   |---plugin
+|   |---view
+|   | ...
+|
+|---core    # 核心文件
+|   |---class
+|   |---config
+|   |---ctrl
+|   |---interceptor
+|   |---plugin
+|   |---view
+|   | ...
+|
+|---config  # 本地配置文件（优先级大于core目录下的config，开发者本地部署）
+|   |---class
+|   |---config
+|   |---ctrl
+|   |---interceptor
+|   |---plugin
+|   |---view
+|   | ...
+|
+|---system  # 系统文件
+|   |---class
+|   |---ctrl
+|   |---interceptor
+|   |---plugin
+|   |---view
+|   | ...
+|
+|---log     #日志文件
+|
+|---vendor  #外部依赖包
+|
+|--- ...
+```
+修改于2018.06.01，儿童节快乐。
