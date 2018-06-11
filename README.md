@@ -50,7 +50,7 @@ $short = new \core\common\short_url::short($url);
 print_r($short);
 ```
 
-# 框架修改方向大纲
+# 框架修改方向大纲 V2.0
 * 由根目录下单入口改为各应用目录下入口
 * 模型层不再使用Medoo依赖包，放到core目录下统一管理
 
@@ -108,3 +108,4 @@ print_r($short);
 |--- ...
 ```
 修改于2018.06.01，儿童节快乐。
+Kirk V2.0 借鉴了RSF框架[https://github.com/suxianbaozi/RSF/]

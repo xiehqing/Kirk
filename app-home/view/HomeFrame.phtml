@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title><?= $this->get_title() ?></title>
+    <?php if ($this->get_description()) : ?>
+        <meta name="Description" content="<?= $this->get_description() ?>"/>
+    <?php endif; ?>
+    <?php if ($this->get_keywords()) : ?>
+        <meta name="Keywords" content="<?= $this->get_keywords() ?>"/>
+    <?php endif; ?>
+    <link rel="stylesheet" rev="stylesheet" href="<?= $this->build_css_url() ?>" type="text/css"/>
+</head>
+<body>
+<? new Home_HeaderPlugin(array('section' => $this->get_main_section())); ?>
+<?php
+$this->build_content();
+?>
+<div>
+    <?php new Home_FooterPlugin(); ?>
+</div>
+<?php foreach ($this->get_static_js_list() as $js): ?>
+    <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+<?php endforeach; ?>
+<script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
+<script>
+    var homeFrame = new HomeFrame();
+    homeFrame.init();
+</script>
+<?php $this->write_script_blocks(); ?>
+</body>
+</html>
