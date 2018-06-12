@@ -1,5 +1,7 @@
 <?php
 /**
+ * 执行脚本，在app-job目录下使用命令
+ *      php run.php 脚本类名
  * Created by PhpStorm.
  * User: kirk
  * Date: 18-6-11
