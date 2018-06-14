@@ -1,6 +1,8 @@
 # Kirk
 自己琢磨的一套框架。
 
+借鉴了RSF框架[https://github.com/suxianbaozi/RSF/]
+
 ## 框架运行流程：
 1. 入口文件(具体项目目录下)
 2. 定义常量（框架所带的目录或者是函数库、第三方类库所带的目录）
@@ -10,11 +12,7 @@
 4. 自动加载类（自动加载一些文件，框架类、请求类等等）
 5. 启动框架
 
-# Kirk V2.0框架修改方向大纲
-* 由根目录下单入口改为各应用目录下入口
-* 模型层不再使用Medoo依赖包，放到core目录下统一管理
-
-## Kirk V2.0 框架目录结构
+## 框架目录结构
 
 ```markdown
 ======================= Kirk =======================
@@ -67,19 +65,15 @@
 |--- ...
 ======================= Kirk =======================
 ```
+## 配置文件说明
+* 多层配置：各目录下的配置文件优先级，项目目录 大于 核心文件 大于 根目录，根目录下的配置文件单独拿出，适用于开发者在开发环境调试，（或者作为重要的配置文件单独配置）
+* model分割到core的类文件中
+* 根目录下的Tool.php文件，辅助开发者快速建立相应的文件目录、Model等等。如建立app-home目录下的index控制器和视图文件，`
+php Tool.php create-page app-home Home\\Index HomeFrameView`。
+注意，nginx重写路由绝对不允许指向根目录，线上环境必须删除Tool.php
 
-# 版本对比
-
-## Kirk V1.0 
-* 采用的单入口文件（根目录下）
-* 配置文件统一在/config目录下(根目录下)
-* Model模型采用Medoo依赖包，通过composer安装管理
-
-## Kirk V2.0 
-借鉴了RSF框架[https://github.com/suxianbaozi/RSF/]
-* 多应用模式，直接在nginx中重写路由指向对应的应用目录
-
-# 部署（Kirk V2.0）
+## 部署
+多应用模式，直接在nginx中重写路由指向对应的应用目录。
 
 项目应用部署（以APP-home为例）：
 ```markdown
@@ -97,7 +91,6 @@ server {
         }
 }
 ```
-
 静态文件部署：
 ```markdown
 server {
@@ -108,19 +101,6 @@ server {
 }
 ```
 
-# 配置解析
+## 参考列表
 
-* 多层配置
-各目录下的配置文件优先级，项目目录 大于 核心文件 大于 根目录，根目录下的配置文件单独拿出，适用于开发者在开发环境调试，（或者作为重要的配置文件单独配置）
-
-* model分割到core的类文件中
-* 根目录下的Tool.php文件，辅助开发者快速建立相应的文件目录、Model等等。如建立app-home目录下的index控制器和视图文件，
-
-```markdown
-php Tool.php create-page app-home Home\\Index HomeFrameView
-```
-注意，nginx重写路由绝对不允许指向根目录，线上环境必须删除Tool.php
-
-
-
-自2018.06.01后，Kirk V1.0废弃，以Kirk V2.0为准，儿童节快乐！
+* RSF框架[https://github.com/suxianbaozi/RSF/]
