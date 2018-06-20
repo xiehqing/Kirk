@@ -25,6 +25,6 @@ class IndexView extends HomeFrameView {
 		));
 	}
     public function get_title() {
-        return '测试';
+        return 'kirk框架测试';
     }
 }
