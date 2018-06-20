@@ -1,6 +1,8 @@
 # Kirk
 自己琢磨的一套框架。
 
+演示地址：http://huangkuankuan.cn
+
 借鉴了RSF框架[https://github.com/suxianbaozi/RSF/]
 
 ## 框架运行流程：
