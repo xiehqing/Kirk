@@ -3,24 +3,23 @@
  * Created by PhpStorm.
  * User: kirk
  * Date: 18-6-21
- * Time: 下午3:07
+ * Time: 下午4:48
  */
 namespace Bll\Home;
 use Bll;
-class Menu extends Bll {
+class News extends Bll {
     const AVAILABLE = 1; # 可用的状态 status 为 1 ; 不可用状态就是
 
     private function get_dao(){
-        $dao = new \Dao\Home\Menu();
+        $dao = new \Dao\Home\News();
         return $dao;
     }
 
-    public function get_available_menus(){
-        $limit = "0,5";
+    public function get_available_news(){
         $where = array(
             'status' => self::AVAILABLE,
         );
-        return $this->get_dao()->get_by_where($where,'list_order desc',$limit);
+        return $this->get_dao()->get_by_where($where,'list_order desc');
     }
 
 }
