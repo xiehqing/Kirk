@@ -22,12 +22,12 @@ class ActionCtrl extends Ctrl{
         $result = array(
             'status' => $status,
             'message' => $msg,
-            'data' => array(),
+            'data' => [],
         );
         return $result;
     }
 
-    public function success($data = array(),$msg = '请求成功！'){
+    public function success($data = [],$msg = '请求成功！'){
         $result = array(
             'status' => 0,
             'message' => $msg,

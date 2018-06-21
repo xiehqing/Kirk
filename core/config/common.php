@@ -7,7 +7,7 @@
  */
 
 //
-$config["white_ip_list"] = array(
+$config["white_ip_list"] = [
     "127.0.0.1" => "*",
     "127.0.0" => "*",// 本地调试
-);
+];
