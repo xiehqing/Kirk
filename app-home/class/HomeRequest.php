@@ -18,6 +18,19 @@ class HomeRequest extends WebRequest{
 
     }
 
+    public function get_child_domain(){
+        $domain = $this->get_domain();
+
+        $config_domain = KIRK::get_instance()->get_config("domain");
+
+        if ($domain == $config_domain) {
+            return false;
+        } else {
+            $ds = explode('.',$domain);
+            return $ds[0];
+        }
+    }
+
     /**
      * 验证是否是白名单中的ＩＰ或ＩＰ段
      * @param string $ip
