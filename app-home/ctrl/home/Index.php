@@ -1,8 +1,51 @@
 <?php
 namespace Home;
-
-class IndexCtrl extends \Ctrl {
+use KIRK;
+class IndexCtrl extends BaseCtrl {
     public function run(){
-        return 'Home\Index';
+        header('Access-Control-Allow-Origin:http://'.KIRK::get_instance()->get_config('domain'));
+        header('Access-Control-Allow-Methods:POST,GET');
+        header('Access-Control-Allow-Credentials:true');
+
+        return parent::run();
+//        return 'Home\Index';
+    }
+
+    /**
+     * @param $params
+     * @param \HomeRequest $request
+     */
+    public function index($params,$request){
+
+        # 顶部导航栏菜单
+        $bll_menu = new \Bll\Home\Menu();
+        $top['menu'] = $bll_menu->get_avaliable_menus();
+
+        # 顶部banner图
+        $bll_banner = new \Bll\Home\Banner();
+        $top['banner'] = $bll_banner->get_avaliable_banners();
+
+        # 侧边标签
+        $bll_tag = new \Bll\Home\Tag();
+        $side['tag'] = $bll_tag->get_avaliable();
+
+        # 侧边分类
+        $bll_category = new \Bll\Home\Category();
+        $side['category'] = $bll_category->get_avaliable_categories();
+
+        # 文章
+        $bll_article = new \Bll\Home\Article();
+        $main['article'] = $bll_article->get_avaliable_articles();
+
+        # 新闻动态
+        $bll_news = new \Bll\Home\News();
+        $main['news'] = $bll_news->get_avaliable_news();
+
+        $request->set_attribute("top",$top);
+        $request->set_attribute("side",$side);
+        $request->set_attribute("main",$main);
+
+
+
     }
 }
