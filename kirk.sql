@@ -4,7 +4,7 @@ create table `tb_home_menu`(
   `p_menu_id` int unsigned not null default 0 comment '父级菜单id',
   `menu_name` varchar(20) not null default '' comment '菜单名',
   `list_order` int not null default 0 comment '排序',
-  `status` int unsigned not null default 0 comment '状态',
+  `status` int unsigned not null default 0 comment '状态：0待审，1可用',
   `create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 ) engine =InnoDB auto_increment=1 default charset =utf8;
@@ -15,7 +15,7 @@ create table `tb_home_banner`(
   `banner_name` varchar(20) not null default '' comment 'banner图名',
   `banner_url` varchar(255) not null default '' comment 'banner图url',
   `list_order` int not null default 0 comment '排序',
-  `status` int unsigned not null default 0 comment '状态',
+  `status` int unsigned not null default 0 comment '状态：0待审，1可用',
   `create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 ) engine =InnoDB auto_increment=1 default charset =utf8;
@@ -23,10 +23,9 @@ create table `tb_home_banner`(
 -- 标签表
 create table `tb_home_tag`(
   `tag_id` int unsigned auto_increment primary key ,
-  `tag_name` varchar(20) not null default '' comment 'banner图名',
---   `banner_url` varchar(255) not null default '' comment 'banner图url',
+  `tag_name` varchar(20) not null default '' comment '标签名',
   `list_order` int not null default 0 comment '排序',
-  `status` int unsigned not null default 0 comment '状态',
+  `status` int unsigned not null default 0 comment '状态：0待审，1可用',
   `create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 ) engine =InnoDB auto_increment=1 default charset =utf8;
@@ -37,7 +36,7 @@ create table `tb_home_category`(
   `p_category_id` int unsigned not null default 0 comment '父级菜单id',
   `category_name` varchar(20) not null default '' comment '分类名',
   `list_order` int not null default 0 comment '排序',
-  `status` int unsigned not null default 0 comment '状态',
+  `status` int unsigned not null default 0 comment '状态：0待审，1可用',
   `create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 ) engine =InnoDB auto_increment=1 default charset =utf8;
@@ -50,6 +49,7 @@ CREATE TABLE `tb_home_news`(
 	`news_image_url` varchar(255) not null default '' comment '图片url',
 	`news_abs` varchar(255) not null default '' comment '简介',
 	`news_content` TEXT comment '获取的文本内容',
+	`status` int unsigned not null default 0 comment '状态：0待审，1可用',
 	`create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 )engine =InnoDB auto_increment=1 default charset =utf8;
@@ -64,6 +64,7 @@ CREATE TABLE `tb_home_article`(
 	`article_content` TEXT comment '文章内容',
 	`article_tag_id` varchar(100) not null default 0 comment '标签id使用英文","隔开',
 	`article_category_id` varchar(100) not null default 0 comment '分类id使用英文","隔开',
+	`status` int unsigned not null default 0 comment '状态：0待审，1可用',
 	`create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 )engine =InnoDB auto_increment=1 default charset =utf8;
