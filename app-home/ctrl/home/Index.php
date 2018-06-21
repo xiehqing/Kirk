@@ -40,12 +40,12 @@ class IndexCtrl extends BaseCtrl {
         # 新闻动态
         $bll_news = new \Bll\Home\News();
         $main['news'] = $bll_news->get_available_news();
-
+var_dump($top);
         $request->set_attribute("top",$top);
         $request->set_attribute("side",$side);
         $request->set_attribute("main",$main);
 
 
-
+        return 'Home\Index';
     }
 }

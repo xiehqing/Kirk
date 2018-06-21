@@ -165,7 +165,7 @@ class KIRK{
     public function show_debug_message() {
         if($this->request->is_debug) {
             $t_head = '<table border=1 style="font-size:12px; margin-top:20px; width:400px; margin:30px;">';
-            $t_head.='<tr><td style="border:1px solid black" colspan=2>RSF Debug Message:</td></tr>';
+            $t_head.='<tr><td style="border:1px solid black" colspan=2>KIRK Debug Message:</td></tr>';
 
 
             foreach($this->debug_list as $data) {
@@ -228,7 +228,7 @@ class KIRK{
      * @return MyMemcache
      * */
     public function get_memcache() {
-        rsf_require_class('MyMemcache');
+        kirk_require_class('MyMemcache');
         if(!$this->memcache) {
             $this->memcache = new MyMemcache();
             $domain = $this->get_config('memcache');
@@ -244,7 +244,7 @@ class KIRK{
      * @return MyRedis
      * */
     public function get_redis() {
-        rsf_require_class('MyRedis');
+        kirk_require_class('MyRedis');
         if(!$this->redis) {
             $this->redis = new MyRedis();
             //$domain = $this->get_config('redis');
@@ -271,7 +271,7 @@ class KIRK{
     public function get_cache(){
         $cache_type = $this->get_config("cache_type");
         if($cache_type==self::CACHE_TYPE_REDIS) {
-            rsf_require_class('RedisCache');
+            kirk_require_class('RedisCache');
             if(!$this->cache_redis) {
                 $this->cache_redis = new RedisCache();
             }

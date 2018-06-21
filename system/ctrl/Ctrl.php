@@ -5,7 +5,7 @@
  * Date: 18-6-11
  * Time: 下午4:06
  */
-abstract class Ctrl{
+abstract class Ctrl {
     abstract public function run();
 
     /**

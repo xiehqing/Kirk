@@ -9,7 +9,7 @@ $config['db']['kirk']['master'] = array(
     'host' => '127.0.0.1',
     'port' => '3306',
     'user' => 'root',
-    'pass' => '',
+    'pass' => 'root',
     'db' => 'kirk'
 );
 
@@ -17,6 +17,6 @@ $config['db']['kirk']['slave'] = array(
     'host' => '127.0.0.1',
     'port' => '3306',
     'user' => 'root',
-    'pass' => '',
+    'pass' => 'root',
     'db' => 'kirk'
 );

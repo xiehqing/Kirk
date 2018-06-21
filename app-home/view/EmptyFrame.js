@@ -1,4 +1,4 @@
-RSF.regist("EmptyFrame");
+KIRK.regist("EmptyFrame");
 EmptyFrame = function () {
     this.init = function () {
     }
