@@ -5,18 +5,18 @@ $config['mongodb'][''] = array(
     'uri' => ''
 );
 
-$config['db']['']['master'] = array(
-    'host' => '',
-    'port' => '',
-    'user' => '',
+$config['db']['kirk']['master'] = array(
+    'host' => '127.0.0.1',
+    'port' => '3306',
+    'user' => 'root',
     'pass' => '',
-    'db' => ''
+    'db' => 'kirk'
 );
 
-$config['db']['']['slave'] = array(
-    'host' => '',
-    'port' => '',
-    'user' => '',
+$config['db']['kirk']['slave'] = array(
+    'host' => '127.0.0.1',
+    'port' => '3306',
+    'user' => 'root',
     'pass' => '',
-    'db' => ''
+    'db' => 'kirk'
 );
