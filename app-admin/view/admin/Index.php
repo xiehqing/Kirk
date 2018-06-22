@@ -1,7 +1,7 @@
 <?php
 namespace Admin;
 use KIRK;
-class IndexView extends \AdminFrameViewView {
+class IndexView extends \AdminFrameView {
 
     public function get_content(){
 		$data = KIRK::get_instance()->get_request()->get_attributes();

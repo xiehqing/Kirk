@@ -1,11 +1,8 @@
 <?php
 namespace Admin;
+class IndexCtrl extends AbstractCtrl {
 
-class IndexCtrl extends \Ctrl {
-
-    public function run(){
-
-
+    public function run_child(){
         return 'Admin\Index';
     }
 }

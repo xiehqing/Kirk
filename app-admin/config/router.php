@@ -1,4 +1,9 @@
+<?php
 
-$config['router']['Admin\Index'] = array(
-    '^\/index$'
+$config['router']['Admin\Default'] = array(
+    '^\/*$',
+);
+
+$config['router']['Admin\Login'] = array(
+    '^\/login\/$',
 );
