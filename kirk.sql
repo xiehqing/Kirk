@@ -68,3 +68,28 @@ CREATE TABLE `tb_home_article`(
 	`create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 )engine =InnoDB auto_increment=1 default charset =utf8;
+
+-- 用户表
+create table `tb_admin_user`(
+  `user_id` int unsigned auto_increment primary key ,
+  `user_name` varchar(40) not null comment '用户名' ,
+  `user_passwd` varchar(32) not null comment '密码',
+  `salt` varchar(6) not null comment '盐',
+  `permission` int unsigned not null default 0 comment '操作权限',
+  `permission_list` varchar(2500) not null comment '有操作权限的列表',
+  `owner_permission` varchar(2500) not null comment '有操作权限的地区',
+  `status` int unsigned not null default 0 comment '状态：0待审，1可用',
+  `claim_time` int not null default 0 comment '审核时间',
+  `create_time` timestamp not null default current_timestamp,
+  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+) engine =InnoDB auto_increment=1 default charset =utf8;
+
+-- 用户日志表
+create table `tb_admin_user_log`(
+  `id` int unsigned auto_increment primary key ,
+  `user_id` int unsigned not null ,
+  `action` varchar(2500) not null comment '用户操作',
+  `ip` varchar(50) not null comment 'ip',
+  `create_time` int not null comment '创建时间',
+  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+) engine =InnoDB auto_increment=1 default charset =utf8;
