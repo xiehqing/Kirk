@@ -9,7 +9,10 @@ kirk_require_class('GlobalFun');
 abstract class View{
     public function get_title() {
         $kirk = KIRK::get_instance();
+        var_dump($kirk->get_config('version'));
+        die();
         return $kirk->get_config('name').$kirk->get_config('version');
+
     }
     public function get_keywords() {
         //return 'PHP,Frame,框架，好用';

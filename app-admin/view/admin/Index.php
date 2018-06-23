@@ -24,6 +24,6 @@ class IndexView extends \AdminFrameView {
 		));
 	}
     public function get_title() {
-        return '测试';
+        return 'Kirk - Admin';
     }
 }

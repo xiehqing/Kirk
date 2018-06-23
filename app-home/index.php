@@ -8,7 +8,7 @@
 error_reporting(E_ALL & ~E_NOTICE);
 
 
-define("ROOT_PATH",dirname(dirname((__FILE__))) . '/');
+define("ROOT_PATH",dirname(dirname(__FILE__)) . '/');
 define("SYS_PATH",'../system');
 define("CUR_PATH", ROOT_PATH . 'app-home');
 
@@ -24,6 +24,7 @@ $CONFIG_PATH = array(
     CUR_PATH . '/config',
     ROOT_PATH . 'config',
 );
+
 
 # 设置页面超时时间
 set_time_limit(KIRK::get_instance()->get_config(['time_out']));

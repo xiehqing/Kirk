@@ -44,7 +44,7 @@ abstract class HomeFrameView extends View {
 
     public static function get_plugin() {
         return array(
-            'Home\VueDev',
+//            'Home_VueDev',
             'Home_Footer',
             'Home_Header'
         );

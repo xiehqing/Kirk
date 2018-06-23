@@ -1,6 +1,9 @@
 <?php
-namespace Home;
-class VuePlugin extends \Plugin {
+
+kirk_require_plugin('Plugin');
+
+class Home_VuePlugin extends \Plugin {
+
     public function get_content() {
         return 'Home\Vue';
     }
