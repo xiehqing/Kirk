@@ -1,17 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-12
- * Time: 上午8:50
- */
-
 kirk_require_view("View");
 kirk_require_class('UrlBuilder');
 
 abstract class EmptyFrameView extends View {
 
     public function get_container() {
+
         return 'EmptyFrame';
     }
 

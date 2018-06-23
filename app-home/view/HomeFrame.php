@@ -5,6 +5,7 @@
  * Date: 18-6-11
  * Time: 下午4:10
  */
+
 kirk_require_view("View");
 kirk_require_plugin('Home_Footer');
 kirk_require_plugin('Home_Header');

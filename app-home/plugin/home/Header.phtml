@@ -1,0 +1,33 @@
+<input type="hidden" value="<?=$user_name?>" id="userName" v-cloak>
+<div id="sq-global">
+    <div id="global-mask"></div>
+    <div id="global-nav">
+        <div class="sq-content">
+            <a class="global-head-home" href="/">Kirk</a>
+            <?php
+            if(!$is_index){
+                ?>
+                <div class="search-input-skin">
+                    <label><input id="search-input" placeholder="请输入你想要查询的信息" v-model="keyInput" /></label>
+                    <i @click="search"></i>
+                </div>
+                <?php
+            }
+            ?>
+            <div class="sq-corner-menu">
+                <ul class="corner-items" id="user-info" v-if="userLoggedIn">
+                    <li>
+                        Hi, <span>{{userName}}</span><i></i>
+                        <div id="user-menu">
+                            <a href="/center/user">个人中心</a>
+                            <a href="javascript:void(0)" @click="toLogOut">退出</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="corner-items" v-else>
+                    <li @click="toLogIn">登录</li>&nbsp;/&nbsp;<li @click="toRegister">注册</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

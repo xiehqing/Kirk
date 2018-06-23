@@ -1,8 +1,44 @@
-hello, kirk framework demo!
-<?//=$top["menu"]?>
+<div id="main-page-container">
+    <div id="home-page">
+        <div id="home-page-title" class="outer-container">
+            <h1>Kirk - 信息查询平台</h1>
+            <div class="outer-container">
+                <div id="total-count">
+                    <div class="frost-wrapper"></div>
+                    <div class="inner-wrapper">已收录股票信息共 <span><?=$count?></span> 条记录</div>
+                </div>
+            </div>
+        </div>
+        <div class="outer-container">
+            <div id="search-input-container">
+                <div class="frost-wrapper"></div>
+                <div class="inner-wrapper">
+                    <div id="input-container">
+                        <label><input id="home-search-input" placeholder="请输入股票号等" /></label>
+                        <div id="search-button" class="first-page-h"><i>查股票信息</i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="union-list-container">
+    <div id="union-display">
+        <h2>More</h2>
+        <ul class="union-list">
+            <li>
+                <i><a href="https://github.com/ClanceyHuang/kirk">Kirk</a> - 一套分布式PHP框架</i>
+            </li>
+            <li>
+                <i><a href="https://debug.cool">Kirk</a> - ClanceyHuang的博客</i>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <?php $this->begain_script_block(); ?>
 <script>
-	var HomeIndex = new Home.Index();
-    HomeIndex.init();
+    var index = new Home.Index();
+    index.init();
 </script>
 <?php $this->end_script_block(); ?>
