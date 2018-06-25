@@ -15,40 +15,7 @@ class DefaultCtrl extends AbstractCtrl {
     public function index(){
         return 'Admin\Default';
     }
-//    public function company_name_notice($params, $request) {
-//        $company_name = $params['company_name'];
-//        if (empty(trim($company_name))) {
-//            $this->error(2);
-//        }
-//        $solr = new Bll_Shuidi_Solr();
-//        $res = $solr->search($company_name, 1, 6);
-//        if ($res) {
-//            $company_list = array();
-//            foreach ($res['list'] as $val) {
-//                $company_list[] = array('company_name' => $val['company_name'], 'digest' => $val['company_name_digest']);
-//            }
-//            return $this->success(array('company_list' => $company_list));
-//        } else {
-//            return $this->error(3);
-//        }
-//    }
 
-//    public function get_company_classification_list($params, $request){
-//        $name = $params['name'];
-//        $bll = new Bll_Shuidi_CompanyType();
-//        $limit = '0,10';
-//        $classification_list = $bll->get_info_by_level(4,$name,$limit);
-//        if($classification_list){
-//            $list = array();
-//            foreach($classification_list as $k=>$v){
-//                $list[] = ['id'=>$v['id'],'name'=>$v['name']];
-//            }
-//            return $this->success(['list'=>$list]);
-//        }else{
-//            return $this->error(3);
-//        }
-//
-//    }
     protected function error($status = 1, $message = '', $data = []) {
         //$data = $this->format_value($data);
         return array(
