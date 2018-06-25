@@ -2,25 +2,17 @@
 namespace Home;
 use KIRK;
 class IndexCtrl extends BaseCtrl {
-    public function run(){
-        header('Access-Control-Allow-Origin:http://'.KIRK::get_instance()->get_config('domain'));
-        header('Access-Control-Allow-Methods:POST,GET');
-        header('Access-Control-Allow-Credentials:true');
-
-        return parent::run();
-//        return 'Home\Index';
-    }
 
     /**
      * @param $params
-     * @param $request
+     * @param \HomeRequest $request
      * @return string
      */
     public function index($params,$request){
 
-//        # 顶部导航栏菜单
-//        $bll_menu = new \Bll\Home\Menu();
-//        $top['menu'] = $bll_menu->get_available_menus();
+        # 顶部导航栏菜单
+        $bll_menu = new \Bll\Home\Menu();
+        $top['menu'] = $bll_menu->get_available_menus();
 //
 //        # 顶部banner图
 //        $bll_banner = new \Bll\Home\Banner();
@@ -42,7 +34,7 @@ class IndexCtrl extends BaseCtrl {
 //        $bll_news = new \Bll\Home\News();
 //        $main['news'] = $bll_news->get_available_news();
 
-//        $request->set_attribute("top",$top);
+        $request->set_attribute("top",$top);
 //        $request->set_attribute("side",$side);
 //        $request->set_attribute("main",$main);
 

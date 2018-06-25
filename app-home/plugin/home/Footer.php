@@ -10,18 +10,18 @@ kirk_require_plugin('Plugin');
 
 class Home_FooterPlugin extends Plugin {
     public function get_content() {
-        return 'Home_Footer';
+        return 'Home\Footer';
     }
 
     public static function get_css_list() {
         return array(
-            'Home_Footer'
+            'Home\Footer'
         );
     }
 
     public static function get_js_list() {
         return array(
-            'Home_Footer'
+            'Home\Footer'
         );
     }
 }

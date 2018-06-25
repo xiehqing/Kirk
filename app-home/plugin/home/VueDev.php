@@ -1,4 +1,5 @@
 <?php
+//kirk_require_plugin('Plugin');
 namespace Home;
 class VueDevPlugin extends \Plugin {
     public function get_content() {
