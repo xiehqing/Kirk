@@ -9,10 +9,5 @@
 # 首页路由
 $config['router']['Home\Index'] = array('^\/*$');
 
-# 搜索路由
+# 搜索路由 需要搜索的内容（文章、新闻、页面）
 $config['router']['Home\Search'] = array('^\/search$');
-
-
-$config['router']['Resource'] = array(
-    '^\/([a-z]+)\/resource\/([a-z]+)\/(.+)\.(css|js)$',
-);
