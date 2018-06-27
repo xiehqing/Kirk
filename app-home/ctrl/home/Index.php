@@ -37,7 +37,7 @@ class IndexCtrl extends BaseCtrl {
 //        $request->set_attribute("top",$top);
 //        $request->set_attribute("side",$side);
 //        $request->set_attribute("main",$main);
-echo "debug";
+
 
         return 'Home\Index';
     }

@@ -30,9 +30,7 @@ abstract class HomeFrameView extends View {
     public static function get_static_css_list(){
         return array_merge(
             parent::get_static_css_list(), array(
-//            'css/bootstrap.css',
             'css/bootstrap.min.css',
-//            'css/bootstrap-theme.css',
             'css/bootstrap-theme.min.css',
         ));
     }
