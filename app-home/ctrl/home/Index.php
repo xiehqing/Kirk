@@ -11,7 +11,7 @@ class IndexCtrl extends BaseCtrl {
     public function index($params,$request){
 
         # 顶部导航栏菜单
-        $bll_menu = new \Bll\Home\Menu();
+//        $bll_menu = new \Bll\Home\Menu();
 //        $top['menu'] = $bll_menu->get_menu();
 //
 //        # 顶部banner图
@@ -34,10 +34,10 @@ class IndexCtrl extends BaseCtrl {
 //        $bll_news = new \Bll\Home\News();
 //        $main['news'] = $bll_news->get_available_news();
 
-        $request->set_attribute("top",$top);
+//        $request->set_attribute("top",$top);
 //        $request->set_attribute("side",$side);
 //        $request->set_attribute("main",$main);
-
+echo "debug";
 
         return 'Home\Index';
     }
