@@ -8,6 +8,47 @@
 kirk_require_class('WebRequest');
 
 class HomeRequest extends WebRequest{
+    // 初始化用户uid
+    private $user_id = 0;
+    // 初始化管理员uid
+    private $admin_user_id = 0;
+    /**
+     * 设置用户uid
+     * @param $user_id
+     */
+    public function set_uid($user_id){
+        $this->user_id->$user_id;
+    }
+
+    /**
+     * 获取用户uid
+     * @return int
+     */
+    public function get_uid(){
+        return $this->user_id;
+    }
+
+    /**
+     * 设置管理员uid
+     * @param $admin_user_id
+     */
+    public function set_admin_uid($admin_user_id){
+        $this->admin_user_id = $admin_user_id;
+    }
+
+    /**
+     * 获取管理员uid
+     * @return int
+     */
+    public function get_admin_uid(){
+        return $this->admin_user_id;
+    }
+
+    /**
+     * 验证黑名单IP
+     * @param bool $exit
+     * @return bool
+     */
     public function check_ip_black($exit = true){
         $ip = $this->get_client_ip();
         $user_agent = $this->get_user_agent();
@@ -15,14 +56,15 @@ class HomeRequest extends WebRequest{
         if ($this->is_white_ip($ip)){
             return false;
         }
-
     }
 
+    /**
+     * 获取子域名
+     * @return bool
+     */
     public function get_child_domain(){
         $domain = $this->get_domain();
-
         $config_domain = KIRK::get_instance()->get_config("domain");
-
         if ($domain == $config_domain) {
             return false;
         } else {
@@ -59,4 +101,13 @@ class HomeRequest extends WebRequest{
 
         return ;
     }
+
+    /**
+     * 获取客户端IP
+     * @return mixed
+     */
+    public function get_client_ip() {
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
 }
