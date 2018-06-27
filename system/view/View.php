@@ -126,6 +126,11 @@ abstract class View{
     public static function get_css_list() {
         return array();
     }
+    public static function get_static_css_list(){
+        return array(
+
+        );
+    }
     public static function get_js_list() {
         return array(
             'KIRK'

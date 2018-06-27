@@ -1,33 +1,62 @@
-<input type="hidden" value="<?=$user_name?>" id="userName" v-cloak>
-<div id="sq-global">
-    <div id="global-mask"></div>
-    <div id="global-nav">
-        <div class="sq-content">
-            <a class="global-head-home" href="/">Kirk</a>
-            <?php
-            if(!$is_index){
-                ?>
-                <div class="search-input-skin">
-                    <label><input id="search-input" placeholder="请输入你想要查询的信息" v-model="keyInput" /></label>
-                    <i @click="search"></i>
-                </div>
-                <?php
-            }
-            ?>
-            <div class="sq-corner-menu">
-                <ul class="corner-items" id="user-info" v-if="userLoggedIn">
-                    <li>
-                        Hi, <span>{{userName}}</span><i></i>
-                        <div id="user-menu">
-                            <a href="/center/user">个人中心</a>
-                            <a href="javascript:void(0)" @click="toLogOut">退出</a>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="corner-items" v-else>
-                    <li @click="toLogIn">登录</li>&nbsp;/&nbsp;<li @click="toRegister">注册</li>
-                </ul>
-            </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Kirk-Huang</a>
         </div>
-    </div>
-</div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <? foreach($left_menu_data as $value){?>
+                    <? if ($value["have_child"]){?>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$value["menu_name"]?> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <? foreach ($value["child_menu"] as $child_menu){?>
+                                    <li><a href="<?=$child_menu["menu_url"]?>"> <?=$child_menu["menu_name"]?></a></li>
+                                <?}?>
+                            </ul>
+                        </li>
+                    <?}else{?>
+                        <li><a href="<?=$value["menu_url"]?>" > <?=$value["menu_name"]?> <span class="sr-only">(current)</span></a></li>
+                    <?} ?>
+                <?}?>
+            </ul>
+
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <? foreach ($right_menu_data as $value){?>
+                    <? if ($value["have_child"]){?>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$value["menu_name"]?> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <? foreach ($value["child_menu"] as $child_menu){?>
+                                <li><a href="<?=$child_menu["menu_url"]?>"><?=$child_menu["menu_name"]?></a></li>
+                                <?}?>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    <?}else{?>
+                        <li><a href="<?=$value["menu_url"]?>"><?=$value["menu_name"]?></a></li>
+                    <?}?>
+                <?}?>
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

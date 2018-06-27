@@ -23,8 +23,18 @@ abstract class HomeFrameView extends View {
 
     public static function get_css_list() {
         return array(
-            'HomeFrame'
+            'HomeFrame',
         );
+    }
+
+    public static function get_static_css_list(){
+        return array_merge(
+            parent::get_static_css_list(), array(
+//            'css/bootstrap.css',
+            'css/bootstrap.min.css',
+//            'css/bootstrap-theme.css',
+            'css/bootstrap-theme.min.css',
+        ));
     }
 
     public static function get_js_list() {
@@ -39,13 +49,13 @@ abstract class HomeFrameView extends View {
     public static function get_static_js_list() {
         return array_merge(
             parent::get_static_js_list(), array(
-            'js/jquery-1.7.1.min.js',
+                'js/jquery-3.3.1.min.js',
+                'js/bootstrap.min.js',
         ));
     }
 
     public static function get_plugin() {
         return array(
-            'Home\VueDev',
             'Home_Footer',
             'Home_Header'
         );

@@ -19,7 +19,6 @@ class HomeRequest extends WebRequest{
     public function set_uid($user_id){
         $this->user_id->$user_id;
     }
-
     /**
      * 获取用户uid
      * @return int
@@ -27,7 +26,6 @@ class HomeRequest extends WebRequest{
     public function get_uid(){
         return $this->user_id;
     }
-
     /**
      * 设置管理员uid
      * @param $admin_user_id
@@ -35,7 +33,6 @@ class HomeRequest extends WebRequest{
     public function set_admin_uid($admin_user_id){
         $this->admin_user_id = $admin_user_id;
     }
-
     /**
      * 获取管理员uid
      * @return int

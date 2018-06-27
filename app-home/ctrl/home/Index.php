@@ -12,7 +12,7 @@ class IndexCtrl extends BaseCtrl {
 
         # 顶部导航栏菜单
         $bll_menu = new \Bll\Home\Menu();
-        $top['menu'] = $bll_menu->get_available_menus();
+//        $top['menu'] = $bll_menu->get_menu();
 //
 //        # 顶部banner图
 //        $bll_banner = new \Bll\Home\Banner();
