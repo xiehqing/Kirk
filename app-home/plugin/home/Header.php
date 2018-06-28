@@ -17,6 +17,7 @@ class Home_HeaderPlugin extends Plugin {
         // 获取顶部右侧菜单栏按钮
         $right_menu_data = $this->get_menu_data(\Bll\Home\Menu::HEADER_MENU_RIGHT,$limit="0,3");
         $this->set_data('right_menu_data',$right_menu_data);
+        var_dump($left_menu_data);
         return 'Home\Header';
     }
 
