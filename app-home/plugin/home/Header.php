@@ -41,6 +41,12 @@ class Home_HeaderPlugin extends Plugin {
         );
     }
 
+    /**
+     * 获取两层结构的Menu
+     * @param int $side 表示status的值（0不可用，1左侧，2右侧）
+     * @param string $limit 获取的条数"0,100"
+     * @return array
+     */
     public function get_menu_data($side,$limit){
         $bll_home_menu = new \Bll\Home\Menu();
         $first_menu = $bll_home_menu->get_first_menu_by_status($side,$limit);

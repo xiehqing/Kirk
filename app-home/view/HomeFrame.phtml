@@ -32,9 +32,10 @@
     $this->build_content();
 ?>
 
-<div>
-    <?php new Home_FooterPlugin(); ?>
-</div>
+<?php
+    new Home_FooterPlugin();
+?>
+
 
 <?php foreach ($this->get_static_js_list() as $js): ?>
     <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
