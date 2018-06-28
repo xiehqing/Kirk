@@ -14,20 +14,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <? foreach($left_menu_data as $value){?>
-                    <? if ($value["have_child"]){?>
+                <?php foreach($left_menu_data as $value){?>
+                    <?php if ($value["have_child"]){?>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$value["menu_name"]?> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $value["menu_name"]; ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <? foreach ($value["child_menu"] as $child_menu){?>
-                                    <li><a href="<?=$child_menu["menu_url"]?>"> <?=$child_menu["menu_name"]?></a></li>
-                                <?}?>
+                                <?php foreach ($value["child_menu"] as $child_menu){?>
+                                    <li><a href="<?php echo $child_menu["menu_url"];?>"> <?php echo $child_menu["menu_name"]; ?></a></li>
+                                <?php }?>
                             </ul>
                         </li>
-                    <?}else{?>
-                        <li><a href="<?=$value["menu_url"]?>" > <?=$value["menu_name"]?> <span class="sr-only">(current)</span></a></li>
-                    <?} ?>
-                <?}?>
+                    <?php }else{?>
+                        <li><a href="<?php echo $value["menu_url"]; ?>" > <?php echo $value["menu_name"]; ?> <span class="sr-only">(current)</span></a></li>
+                    <?php } ?>
+                <?php }?>
             </ul>
 
             <form class="navbar-form navbar-left">
@@ -38,22 +38,22 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <? foreach ($right_menu_data as $value){?>
-                    <? if ($value["have_child"]){?>
+                <?php foreach ($right_menu_data as $value){?>
+                    <?php if ($value["have_child"]){?>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$value["menu_name"]?> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $value["menu_name"]; ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <? foreach ($value["child_menu"] as $child_menu){?>
-                                <li><a href="<?=$child_menu["menu_url"]?>"><?=$child_menu["menu_name"]?></a></li>
-                                <?}?>
+                                <?php foreach ($value["child_menu"] as $child_menu){?>
+                                <li><a href="<?php echo $child_menu["menu_url"]; ?>"><?php echo $child_menu["menu_name"];?></a></li>
+                                <?php }?>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                             </ul>
                         </li>
-                    <?}else{?>
-                        <li><a href="<?=$value["menu_url"]?>"><?=$value["menu_name"]?></a></li>
-                    <?}?>
-                <?}?>
+                    <?php }else{?>
+                        <li><a href="<?php echo $value["menu_url"]; ?>"><?php $value["menu_name"]; ?></a></li>
+                    <?php}?>
+                <?php}?>
 
 
             </ul>
