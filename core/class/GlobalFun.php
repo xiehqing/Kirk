@@ -729,6 +729,32 @@ class GlobalFun{
         }
     }
 
+    /**
+     * 过滤文本的方法
+     * 过滤空格为&nbsp; \n为<br> (暂时只需过滤这两种，其他需要过滤的只要加一个case就可以)
+     * @param string $str
+     * @return string
+     * @author kuan
+     */
+    public static function replace_content($str) {
+        $str_arr = [];
+        for ($i = 0; $i < strlen($str); $i++) {
+            switch (substr($str, $i, 1)) {
+                case " " :
+                    $str_arr[$i] = "&nbsp;";
+                    break;
+                case "\n":
+                    $str_arr[$i] = "<br>";
+                    break;
+                default:
+                    $str_arr[$i] = substr($str, $i, 1);
+                    break;
+            }
+        }
+        $result = implode('', $str_arr);
+        return $result;
+    }
+
 
 
 }
