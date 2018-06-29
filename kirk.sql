@@ -3,8 +3,9 @@ create table `tb_home_menu`(
   `menu_id` int unsigned auto_increment primary key ,
   `p_menu_id` int unsigned not null default 0 comment '父级菜单id',
   `menu_name` varchar(20) not null default '' comment '菜单名',
+  `menu_url` varchar(255) not null default '#' comment '链接地址',
   `list_order` int not null default 0 comment '排序',
-  `status` int unsigned not null default 0 comment '状态：0待审，1可用',
+  `status` int unsigned not null default 0 comment '状态：0不可用，1top左侧，2top右侧',
   `create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 ) engine =InnoDB auto_increment=1 default charset =utf8;
