@@ -19,7 +19,8 @@ class News extends Bll {
         $where = array(
             'status' => self::AVAILABLE,
         );
-        return $this->get_dao()->get_by_where($where,'list_order desc');
+        $field = "news_title,news_site_url,news_images_url,news_abs,news_content";
+        return $this->get_dao()->get_by_where($where,'list_order desc','',$field);
     }
 
 }
