@@ -13,18 +13,17 @@ use KIRK;
 class ArticleCtrl extends ActionCtrl{
 
     # 访问方式：
-    #   http://api.kirk.com/v1/home/api?action=article_referer
+    #   http://api.kirk.com/v1/home?action=article_referer
     public function referer(){
-        KIRK::get_instance()->get_response()->redirect('http://api.kirk.com/v1/home/api?action=article_test_referer');
+        KIRK::get_instance()->get_response()->redirect('http://api.kirk.com/v1/home?action=article_test_referer');
         exit();
     }
 
     # 访问方式：
-    #   http://api.kirk.com/v1/home/api?action=article_test_referer
+    #   http://api.kirk.com/v1/home?action=article_test_referer
     public function test_referer(){
         print_r($_SERVER);
         exit();
     }
-
 
 }

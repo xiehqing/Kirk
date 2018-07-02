@@ -21,7 +21,7 @@ server {
 ### 调用方式
 ```
 Demo：
-http://api.kirk.com/v1/home/api?action=get_article_list
+http://api.kirk.com/v1/home?action=get_article_list
 注解：
-域名/版本号/相应板块/api?action=get_article_list
+域名/版本号/相应板块?方法=方法名
 ```
