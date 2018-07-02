@@ -7,3 +7,8 @@
  */
 
 $config['location'] = '/home';
+
+$config['home_api'] = array(
+    'app_id'=>'',
+    'app_secret'=>''
+);
