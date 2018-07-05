@@ -6,8 +6,8 @@
  * Date: 18-6-20
  * Time: 上午10:05
  */
-
-class Bin_Home_GetNews extends \Bin_Abstract {
+kirk_require_class('Bin_Abstract');
+class Bin_Home_GetNews extends Bin_Abstract {
 
     public function run($argv, $argc) {
         // 演示在脚本中两种方法获取数据库中相应的新闻数据
@@ -18,7 +18,7 @@ class Bin_Home_GetNews extends \Bin_Abstract {
 //        $home_news_data = $dao_home_news->exeSQL("select $field from tb_home_news where status=1");
 
         // 2、通过调用bll的方法
-        $bll_home_news = new \Bll\Home\News();
+        $bll_home_news = new Bll\Home\News();
         $home_news_data = $bll_home_news->get_available_news();
 
         // 拿到新闻数据后，根据具体的业务情况再进行下一步操作，demo演示直接dump
