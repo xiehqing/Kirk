@@ -70,6 +70,18 @@ CREATE TABLE `tb_home_article`(
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 )engine =InnoDB auto_increment=1 default charset =utf8;
 
+-- 联系方式
+CREATE TABLE `tb_home_contact`(
+	`contact_id` int unsigned auto_increment primary key ,
+	`contact_title` varchar(100) not null default '' comment '标题',
+	`contact_content` TEXT comment '内容',
+	`status` int unsigned not null default 0 comment '状态：0待审，1可用',
+	`create_time` timestamp not null default current_timestamp,
+  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+)engine =InnoDB auto_increment=1 default charset =utf8;
+
+
+
 -- 用户表
 create table `tb_admin_user`(
   `user_id` int unsigned auto_increment primary key ,

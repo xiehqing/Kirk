@@ -14,7 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <?php foreach($data["left"] as $value){?>
+                <?php foreach($menu_data["left"] as $value){?>
                     <?php if ($value['have_child']){?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $value['menu_name']; ?> <span class="caret"></span></a>
@@ -38,7 +38,7 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <?php foreach ($data["right"] as $value){?>
+                <?php foreach ($menu_data["right"] as $value){?>
                     <?php if ($value['have_child']){?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $value['menu_name']; ?> <span class="caret"></span></a>

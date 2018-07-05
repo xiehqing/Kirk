@@ -10,6 +10,11 @@ kirk_require_plugin('Plugin');
 
 class Home_FooterPlugin extends Plugin {
     public function get_content() {
+
+        // 获取底部联系方式
+        $contact_data = $this->get_contact_data();
+
+        $this->set_data('contact_data',$contact_data);
         return 'Home\Footer';
     }
 
@@ -19,9 +24,15 @@ class Home_FooterPlugin extends Plugin {
         );
     }
 
-    public static function get_js_list() {
+    public static function get_js_list(){
         return array(
             'Home\Footer'
         );
+    }
+
+    public function get_contact_data(){
+        $bll_home_contact = new \Bll\Home\Contact();
+        $result = $bll_home_contact->get_available_contact_info();
+        return $result;
     }
 }
