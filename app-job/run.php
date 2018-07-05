@@ -26,6 +26,7 @@ $CONFIG_PATH = array(
 );
 kirk_require_class('KIRK');
 KIRK::get_instance()->debug = false; //防止溢出
+var_dump($argv);
 $job_path = $argv[1];
 if($job_path) {
     kirk_require_class($job_path);
