@@ -17,16 +17,16 @@ require_once(SYS_PATH.'/functions.php');
 $INCLUDE_PATH = array(
     CUR_PATH,
     ROOT_PATH.'app-job',
-    ROOT_PATH.'app-core'
+    ROOT_PATH.'core'
 );
 $CONFIG_PATH = array(
     CUR_PATH.'/config',
-    ROOT_PATH.'app-core/config',
+    ROOT_PATH.'core/config',
     ROOT_PATH.'config',
 );
 kirk_require_class('KIRK');
 KIRK::get_instance()->debug = false; //防止溢出
-var_dump($argv);
+
 $job_path = $argv[1];
 if($job_path) {
     kirk_require_class($job_path);
