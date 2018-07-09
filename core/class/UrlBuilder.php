@@ -34,4 +34,18 @@ class UrlBuilder{
     public static function build_image_url_compatible($key,$width=230,$height=230,$ext="jpg",$q=""){
 
     }
+
+    /**
+     * 生成移动端的url（包括二维码等等）
+     * @param $key
+     * @param bool $with_domain
+     * @return string
+     */
+    public static function build_mobile_url_by_key($key,$with_domain=false){
+        if (!$with_domain){
+            return "/mobile/home?key={$key}";
+        }else{
+            return 'http://'.KIRK::get_instance()->get_config('domain')."/mobile/home?key={$key}";
+        }
+    }
 }
