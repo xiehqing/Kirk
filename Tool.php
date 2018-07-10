@@ -8,7 +8,12 @@
 
 # 开发环境使用，线上环境需要删除该文件
 # 使用方法：
-#   如建立app-home目录下的index控制器和视图文件，php Tool.php create-page app-home Home\\Index HomeFrameView
+#   建立控制器及视图的方法
+#       php Tool.php create-page app-home Home\\Index HomeFrame
+#   建立dao
+#       php Tool.php create-dao dao_name table_name db pk
+#   建立bll
+#       php Tool.php create-bll classname dao_name
 
 error_reporting(E_ALL & ~E_NOTICE);
 
@@ -61,7 +66,7 @@ class {$dao_name} extends Dao_CacheDao {
     }
 }
 EOL;
-    $dir = './app-core/class/'.implode('/',$namespaces);
+    $dir = './core/class/'.implode('/',$namespaces);
     $dir  = strtolower($dir);
 
     if(!file_exists($dir)) {
@@ -94,7 +99,7 @@ class {$bll_name} extends Bll {
     }
 }
 EOL;
-    $dir = './app-core/class/'.implode('/',$namespaces);
+    $dir = './core/class/'.implode('/',$namespaces);
     $dir  = strtolower($dir);
     if(!file_exists($dir)) {
         mkdir($dir, 0755, true);
