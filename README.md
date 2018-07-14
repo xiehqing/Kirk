@@ -135,6 +135,7 @@ www(我的配置是直接在github目录下)
 ## 部署
 项目应用部署`kirk.conf`文件：
 ```
+# 首页模块
 server {
     listen 80;
     server_name huangkuankuan.cn;
@@ -148,6 +149,8 @@ server {
         include fastcgi_params;
     }
 }
+
+# 后台管理
 server {
     listen 80;
     server_name admin.huangkuankuan.cn;
@@ -161,6 +164,8 @@ server {
         include fastcgi_params;
     }
 }
+
+# 接口模块
 server {
     listen 80;
     server_name api.huangkuankuan.cn;
@@ -176,8 +181,9 @@ server {
 }
 ```
 
-文件系统、静态文件部署`file.conf`文件：
+文件系统、静态文件部署`file.conf`文件（业务量大时，可单独部署到其它服务器）：
 ```
+# 文件系统
 server {
     listen 80;
     server_name file.huangkuankuan.cn;
@@ -191,6 +197,7 @@ server {
         include fastcgi_params;
     }
 }
+# 静态资源
 server {
     listen 80;
     server_name static.huangkuankuan.cn;
