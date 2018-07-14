@@ -88,7 +88,7 @@ www(我的配置是直接在github目录下)
 |   |--- ...
 |
 |
-|---file # 文件系统，上传下载专用（依赖较少，更新也少的部分。可另外单独部署到其它服务器）
+|---Cicada # 文件系统，上传下载专用（依赖较少，更新也少的部分。可另外单独部署到其它服务器）
 |   |
 |   |---app-file      # 文件模块
 |   |   |---class
@@ -188,7 +188,7 @@ server {
     listen 80;
     server_name file.huangkuankuan.cn;
     index index.php index.html index.htm default.php;
-    root /home/kirk/github/file/app-file;
+    root /home/kirk/github/Cicada/app-file;
     rewrite . /index.php;
     location ~ .*\.(php|php5)?$ {
         fastcgi_pass 127.0.0.1:9000;
