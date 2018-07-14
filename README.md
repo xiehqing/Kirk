@@ -188,7 +188,7 @@ server {
     listen 80;
     server_name file.huangkuankuan.cn;
     index index.php index.html index.htm default.php;
-    root /home/kirk/github/Cicada/app-file;
+    root /home/kirk/github/Cicada/app-show;
     rewrite . /index.php;
     location ~ .*\.(php|php5)?$ {
         fastcgi_pass 127.0.0.1:9000;
@@ -196,6 +196,19 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
+}
+server {
+        listen       80;
+        server_name upfile.huangkuankuan.cn;
+        index index.html index.htm index.php;
+        root  /home/kirk/github/Cicada/app-upload;
+        rewrite . /index.php;
+        location ~ .*\.(php|php5)?$ {
+            fastcgi_pass   unix:/tmp/php-cgi.sock;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME   $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+        }
 }
 # 静态资源
 server {
