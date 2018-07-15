@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $this->get_title() ?></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <?php if ($this->get_description()) : ?>
-        <meta name="Description" content="<?= $this->get_description() ?>"/>
-    <?php endif; ?>
+    <title><?= $this->get_title() ?></title>
 
     <?php if ($this->get_keywords()) : ?>
         <meta name="Keywords" content="<?= $this->get_keywords() ?>"/>
     <?php endif; ?>
 
+    <?php if ($this->get_description()) : ?>
+        <meta name="Description" content="<?= $this->get_description() ?>"/>
+    <?php endif; ?>
+
     <link rel="stylesheet" rev="stylesheet" href="<?= $this->build_css_url() ?>" type="text/css"/>
+
     <?php foreach ($this->get_static_css_list() as $css): ?>
         <link rel="stylesheet" rev="stylesheet" href="<?= UrlBuilder::build_static($css); ?>" type="text/css"/>
     <?php endforeach; ?>
 
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-
+    <?php foreach ($this->get_static_js_list() as $js): ?>
+        <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+    <?php endforeach; ?>
 </head>
+
 <body>
-<?php
-    // 传menu数据到HeaderPlugin
-    new Home_HeaderPlugin();
-?>
 
 <?php
     $this->build_content();
 ?>
 
-<?php
-    new Home_FooterPlugin();
-?>
-
-
 <?php foreach ($this->get_static_js_list() as $js): ?>
     <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
 <?php endforeach; ?>
+
 <script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
 
 <script>

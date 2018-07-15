@@ -29,8 +29,9 @@ abstract class HomeFrameView extends View {
     public static function get_static_css_list(){
         return array_merge(
             parent::get_static_css_list(), array(
-            'home/css/bootstrap.min.css',
-            'home/css/bootstrap-theme.min.css',
+            'home/css/font-awesome.min.css',
+            'home/css/magnific-popup.css',
+            'home/css/templatemo_style.css',
         ));
     }
 
@@ -46,8 +47,11 @@ abstract class HomeFrameView extends View {
     public static function get_static_js_list() {
         return array_merge(
             parent::get_static_js_list(), array(
-                'home/js/jquery-3.3.1.min.js',
-                'home/js/bootstrap.min.js',
+                'home/js/jquery-1.11.1.min.js',
+                'home/js/jquery.easing.1.3.js',
+                'home/js/modernizr.2.5.3.min.js',
+                'home/js/jquery.magnific-popup.min.js',
+                'home/js/templatemo_script.js'
         ));
     }
 

@@ -214,7 +214,7 @@ server {
 server {
     listen 80;
     server_name static.huangkuankuan.cn;
-    root /home/kirk/github/static
+    root /home/kirk/github/web-static
     limit_rate 512k;
 }
 ```
