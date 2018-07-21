@@ -17,6 +17,6 @@ class Category extends Dao_CacheDao {
     }
 
     public function get_pk_id() {
-        return 'category_id';
+        return 'id';
     }
 }

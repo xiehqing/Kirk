@@ -1,0 +1,44 @@
+<?php if ($pages['total_num']) { ?>
+    <div class="pagination">
+        <ul class="nav">
+            <?php if ($pages['page'] > 1) { ?>
+
+                <a class="prevPage" href="<?= $this->build_url($pages['base_url'], 1) ?>">
+                    <li>首</li>
+                </a>
+                <a class="prevPage" href="<?= $this->build_url($pages['base_url'], $pages['page'] - 1) ?>">
+                    <li> << </li>
+                </a>
+
+            <?php } ?>
+
+            <?php
+            for ($i = $pages['left_min']; $i <= intval($pages['right_max']); $i++) { ?>
+
+                <?php if ($i != $pages['page']) { ?>
+
+                    <a <?php if ($i == $pages['page']){ ?>class="active"<?php } ?>
+                           href="<?= $this->build_url($pages['base_url'], $i) ?>">
+                        <li><?= $i ?></li>
+                    </a>
+
+                <?php } ?>
+
+            <?php } ?>
+            <?php if ($pages['total_page'] > $pages['page']) { ?>
+
+                <a class="nextPage" href="<?= $this->build_url($pages['base_url'], $pages['page'] + 1) ?>">
+                    <li> >> </li>
+                </a>
+
+                <a class="nextPage" href="<?= $this->build_url($pages['base_url'], $pages['total_page']) ?>">
+                    <li>尾</li>
+                </a>
+
+
+            <?php } ?>
+
+        </ul>
+    </div>
+    <i>（共<?= $pages['total_num'] ?>个瞬间）</i>
+<?php } ?>

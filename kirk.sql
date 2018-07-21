@@ -51,6 +51,7 @@ CREATE TABLE `tb_home_news`(
 	`image_url` varchar(255) not null default '' comment '图片url',
 	`abs` varchar(255) not null default '' comment '简介',
 	`content` varchar(2500) comment '获取的文本内容',
+	`sort` int unsigned not null default 0 comment '排序',
 	`status` int unsigned not null default 1 comment '状态：1待审，2可用',
 	`create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
@@ -66,6 +67,7 @@ CREATE TABLE `tb_home_article`(
 	`content` TEXT comment '文章内容',
 	`tag_id` varchar(100) not null default 0 comment '标签id使用英文","隔开',
 	`category_id` varchar(100) not null default 0 comment '分类id使用英文","隔开',
+	`sort` int unsigned not null default 0 comment '排序',
 	`status` int unsigned not null default 1 comment '状态：1待审，2可用',
 	`create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
@@ -78,11 +80,26 @@ CREATE TABLE `tb_home_photo`(
   `path` varchar(255) not null default '' comment '图片路径',
   `abs` varchar (255) not null default '' comment '图片简介',
   `content` varchar(2500) not null default '' comment '图片描述内容',
+  `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `create_time` timestamp not null default current_timestamp,
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 )engine =InnoDB auto_increment=1 default charset =utf8;
 ALTER TABLE tb_home_photo COMMENT = 'Home-相册表';
+
+-- 公告表
+CREATE TABLE `tb_home_notice`(
+  `id` int unsigned auto_increment primary key ,
+  `title` varchar(100) not null default '' comment '公告标题',
+  `url` varchar(255) not null default '' comment '公告路径(如果有跳转)',
+  `abs` varchar (255) not null default '' comment '公告简介',
+  `content` varchar(2500) not null default '' comment '公告描述内容',
+  `sort` int unsigned not null default 0 comment '排序',
+  `status` int unsigned not null default 1 comment '状态：1待审，2可用',
+  `create_time` timestamp not null default current_timestamp,
+  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+)engine =InnoDB auto_increment=1 default charset =utf8;
+ALTER TABLE tb_home_notice COMMENT = 'Home-公告表';
 
 -- 联系方式
 CREATE TABLE `tb_home_contact`(

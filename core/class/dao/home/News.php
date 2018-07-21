@@ -17,6 +17,6 @@ class News extends Dao_CacheDao {
     }
 
     public function get_pk_id() {
-        return 'news_id';
+        return 'id';
     }
 }

@@ -18,7 +18,7 @@ class Contact extends Dao_CacheDao{
     }
 
     public function get_pk_id() {
-        return 'contact_id';
+        return 'id';
     }
 
 

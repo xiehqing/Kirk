@@ -17,6 +17,6 @@ class Menu extends Dao_CacheDao {
     }
 
     public function get_pk_id() {
-        return 'menu_id';
+        return 'id';
     }
 }

@@ -10,6 +10,7 @@ use KIRK;
 use ActionCtrl;
 
 class BaseCtrl extends ActionCtrl {
+
 //    public $start_time;
 //    public $end_time;
 //    public $input_params;

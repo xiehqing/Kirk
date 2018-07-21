@@ -12,8 +12,10 @@
 #       php Tool.php create-page app-home Home\\Index HomeFrame
 #   建立dao
 #       php Tool.php create-dao dao_name table_name db pk
+#       php Tool.php create-dao Dao\\Home\\Notice tb_home_notice kirk id
 #   建立bll
 #       php Tool.php create-bll classname dao_name
+#       php Tool.php create-bll Bll\\Home\\Notice Dao\\Home\\Notice
 
 error_reporting(E_ALL & ~E_NOTICE);
 

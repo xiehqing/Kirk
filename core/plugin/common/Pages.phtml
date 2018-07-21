@@ -1,0 +1,28 @@
+<?php if ($pages['total_num']) { ?>
+    <div class="page">
+        <p>
+            <i>（共<?= $pages['total_num'] ?>条记录）</i>
+            <?php if ($pages['page'] > 1) { ?>
+
+                <a class="prevPage" href="<?= $this->build_url($pages['base_url'], 1) ?>">首页</a>
+                <a class="prevPage" href="<?= $this->build_url($pages['base_url'], $pages['page'] - 1) ?>">上一页</a>
+            <?php } ?>
+
+            <?php
+            for ($i = $pages['left_min']; $i <= intval($pages['right_max']); $i++) { ?>
+
+                <?php if ($i != $pages['page']) { ?>
+                    <a <?php if ($i == $pages['page']){ ?>class="current"<?php } ?>
+                       href="<?= $this->build_url($pages['base_url'], $i) ?>"><?= $i ?></a>
+                <?php } else { ?>
+                    <a <?php if ($i == $pages['page']){ ?>class="current"<?php } ?> ><?= $i ?></a>
+                <?php } ?>
+
+            <?php } ?>
+            <?php if ($pages['total_page'] > $pages['page']) { ?>
+                <a class="nextPage" href="<?= $this->build_url($pages['base_url'], $pages['page'] + 1) ?>">下一页</a>
+                <a class="nextPage" href="<?= $this->build_url($pages['base_url'], $pages['total_page']) ?>">尾页</a>
+            <?php } ?>
+        </p>
+    </div>
+<?php } ?>

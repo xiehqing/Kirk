@@ -17,6 +17,6 @@ class Article extends Dao_CacheDao {
     }
 
     public function get_pk_id() {
-        return 'article_id';
+        return 'id';
     }
 }

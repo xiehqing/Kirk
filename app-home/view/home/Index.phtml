@@ -1,118 +1,42 @@
 <div class="main-container">
-    <nav class="main-nav">
-        <div id="logo" class="left"><a href="#">Kirk Huang</a></div>
-        <ul class="nav right center-text">
-            <li class="btn active">Home</li>
-            <li class="btn"><a href="about.html">About</a></li>
-            <li class="btn"><a href="awards.html">Awards</a></li>
-            <li class="btn"><a href="contact.html">Contact</a></li>
-            <li class="btn"><a rel="nofollow" href="#">External</a></li>
-        </ul>
-    </nav>
+    <?php
+        new Home_NavPlugin();
+    ?>
+
     <div class="content-container">
-        <header>
-            <h1 class="center-text">Debug · Cool</h1>
-            <h2 class="center-text">Flip Turn is free HTML5 responsive <a rel="nofollow" href="http://www.cssmoban.com">website template</a> by templatemo. Credit goes to <a rel="nofollow" href="#">Unsplash</a> for images used in this template. Morbi hendrerit lacinia magna et tempus. Integer placerat sed nulla non tincidunt.</h2>
-        </header>
+        <?php
+        new Home_HeaderPlugin();
+        ?>
 
         <div id="portfolio-content" class="center-text">
 
-            <div class="portfolio-page" id="page-1">
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/1-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/1-small.jpg"); ?>" alt="image 1">
-                        <div class="detail">
-                            <h3>Wavy Road</h3>
-                            <p>Duis ac laoreet mi. Maecenas non lorem sed elit molestie tincidunt. Vestibulum tincidunt libero urna, ut dignissim purus accumsan nec.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/2-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/2-small.jpg"); ?>" alt="image 2">
-                        <div class="detail">
-                            <h3>Rocky Mountain</h3>
-                            <p>Sed in molestie lectus. Curabitur non est neque. Maecenas id luctus ligula. Duis ac laoreet mi. Maecenas non lorem sed elit molestie tincidunt.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/3-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/3-small.jpg"); ?>" alt="image 3">
-                        <div class="detail">
-                            <h3>Clear River</h3>
-                            <p>Duis ac laoreet mi. Maecenas non lorem sed elit molestie tincidunt. Vestibulum tincidunt libero urna, ut dignissim purus accumsan nec.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/4-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/4-small.jpg"); ?>" alt="image 4">
-                        <div class="detail">
-                            <h3>Rounded Flower</h3>
-                            <p>Sed in molestie lectus. Curabitur non est neque. Maecenas id luctus ligula. Mauris dignissim ante eu arcu ultricies, at sodales orci aliquet.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/5-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/5-small.jpg"); ?>" alt="image 5">
-                        <div class="detail">
-                            <h3>Bustling City</h3>
-                            <p>Duis ac laoreet mi. Vestibulum tincidunt libero urna, ut dignissim purus accumsan nec. Sed in molestie lectus. Curabitur non est neque.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/6-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/6-small.jpg"); ?>" alt="image 6">
-                        <div class="detail">
-                            <h3>Retired Leaves</h3>
-                            <p>Sed in molestie lectus. Curabitur non est neque. Maecenas id luctus ligula. Mauris dignissim ante eu arcu ultricies, at sodales orci aliquet.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/7-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/7-small.jpg"); ?>" alt="image 7">
-                        <div class="detail">
-                            <h3>Clean Design</h3>
-                            <p>Vestibulum tincidunt libero urna, ut dignissim purus accumsan nec. Maecenas id luctus ligula. Mauris dignissim ante eu arcu ultricies, at sodales orci aliquet.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-group">
-                    <a class="portfolio-item" href="<?= UrlBuilder::build_static("home/images/8-large.jpg"); ?>">
-                        <img src="<?= UrlBuilder::build_static("home/images/8-small.jpg"); ?>" alt="image 8">
-                        <div class="detail">
-                            <h3>Rock Solid</h3>
-                            <p>Duis ac laoreet mi. Maecenas non lorem sed elit molestie tincidunt. Mauris dignissim ante eu arcu ultricies, at sodales orci aliquet.</p>
-                            <span class="btn">View</span>
-                        </div>
-                    </a>
-                </div>
+            <div class="portfolio-page" id="page-<?=$page['page']?>">
+                <? foreach ($photo_info as $value) {?>
+                    <div class="portfolio-group">
+                        <a class="portfolio-item" href="<?= UrlBuilder::build_static($value['path']); ?>">
+                            <img src="<?= UrlBuilder::build_static($value['path']); ?>" alt="image 1">
+                            <div class="detail">
+                                <h3><?=$value['title']?></h3>
+                                <p><?=$value['abs']?></p>
+                                <span class="btn">View</span>
+                            </div>
+                        </a>
+                    </div>
+                <?}?>
             </div>
 
-            <div class="portfolio-page" id="page-2" style="display:none;">
+             <!-- page 3 -->
+            <?php
+                new Home_PagesPlugin($pages);
+            ?>
+<!--            <div class="pagination">-->
+<!--                <ul class="nav">-->
+<!--                    <li class="active">1</li>-->
+<!--                    <li>2</li>-->
+<!--                    <li>3</li>-->
+<!--                </ul>-->
+<!--            </div>-->
 
-            </div>
-            <div class="portfolio-page" id="page-3" style="display:none;">
-
-            </div> <!-- page 3 -->
-            <div class="pagination">
-                <ul class="nav">
-                    <li class="active">1</li>
-                    <li>2</li>
-                    <li>3</li>
-                </ul>
-            </div>
 
         </div>
     </div>	<!-- /.content-container -->

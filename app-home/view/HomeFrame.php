@@ -10,7 +10,7 @@ kirk_require_view("View");
 kirk_require_plugin('Home_Footer');
 kirk_require_plugin('Home_Header');
 kirk_require_plugin('Home_Nav');
-kirk_require_plugin('Home\VueDev');
+kirk_require_plugin('Home_Pages');
 kirk_require_class('UrlBuilder');
 kirk_require_class('Home_UrlBuilder');
 
