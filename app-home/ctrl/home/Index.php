@@ -2,7 +2,7 @@
 namespace Home;
 use KIRK;
 class IndexCtrl extends BaseCtrl {
-
+    const PAGE_MUM = 8;
     /**
      * @param $params
      * @param \HomeRequest $request
@@ -10,25 +10,18 @@ class IndexCtrl extends BaseCtrl {
      */
     public function index($params,$request) {
 
-        # top_banner
-        $bll_banner = new \Bll\Home\Banner();
-        $top['banner'] = $bll_banner->get_available_banners();
+        $page = $params['page']?$params['page']:1;
+        $limit = (($page-1)*self::PAGE_MUM).','.self::PAGE_MUM;
+        $bll_photo = new \Bll\Home\Photo();
+        $photo_info = $bll_photo->get_photo_info_by_ststus($ststus,$limit);
+        $photo_count = $bll_photo->get_photo_count_by_status($ststus);
 
-        # side_tag
-        $bll_tag = new \Bll\Home\Tag();
-        $side['tag'] = $bll_tag->get_available_tags();
-
-        # side_category
-        $bll_category = new \Bll\Home\Category();
-        $side['category'] = $bll_category->get_available_categories();
-
-        # main_article
-        $bll_article = new \Bll\Home\Article();
-        $main['article'] = $bll_article->get_available_articles();
-
-        # main_news
-        $bll_news = new \Bll\Home\News();
-        $main['news'] = $bll_news->get_available_news();
+        # page_create
+        $page_creater = new \PageCreater();
+        $page_creater->set_baseurl('/');
+        $page_creater->set_page($page);
+        $page_creater->set_page_num(self::PAGE_MUM);
+        $page_creater->set_total_num($count);
 
         $request->set_attribute("top",$top);
         $request->set_attribute("side",$side);

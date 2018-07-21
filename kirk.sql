@@ -71,6 +71,19 @@ CREATE TABLE `tb_home_article`(
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 )engine =InnoDB auto_increment=1 default charset =utf8;
 
+-- 相册表
+CREATE TABLE `tb_home_photo`(
+  `id` int unsigned auto_increment primary key ,
+  `title` varchar(100) not null default '' comment '图片标题',
+  `path` varchar(255) not null default '' comment '图片路径',
+  `abs` varchar (255) not null default '' comment '图片简介',
+  `content` varchar(2500) not null default '' comment '图片描述内容',
+  `status` int unsigned not null default 1 comment '状态：1待审，2可用',
+  `create_time` timestamp not null default current_timestamp,
+  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+)engine =InnoDB auto_increment=1 default charset =utf8;
+ALTER TABLE tb_home_photo COMMENT = 'Home-相册表';
+
 -- 联系方式
 CREATE TABLE `tb_home_contact`(
 	`id` int unsigned auto_increment primary key ,
