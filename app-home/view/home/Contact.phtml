@@ -1,0 +1,52 @@
+<div class="main-container">
+    <!-- nav -->
+    <?php new Home_NavPlugin(); ?>
+    <!-- /.nav -->
+    <!-- content-container -->
+    <div class="content-container">
+        <!-- Header -->
+        <?php new Home_HeaderPlugin(); ?>
+        <!-- /.Header -->
+
+        <div id="contact-content" class="content">
+            <div class="templatemo_contactmap">
+                <div id="templatemo_map"></div>
+            </div>
+            <form role="form" method="post" action="#">
+                <div class="templatemo_form">
+                    <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Your Name" maxlength="40">
+                </div>
+                <div class="templatemo_form">
+                    <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" maxlength="40">
+                </div>
+                <div class="templatemo_form">
+                    <textarea name="message" rows="10" class="form-control" id="message" placeholder="Message"></textarea>
+                </div>
+                <div class="templatemo_form"><button type="submit" class="btn btn-primary">Send Message</button></div>
+                <address class="content-description">
+                    <i class="fa fa-phone"></i> 010-010-0110<br>
+                    <i class="fa fa-map-marker"></i> 110 Proin eu erat vitae, mauris ullamcorper luctus 10110<br>
+                    <i class="fa fa-envelope"></i> <a href="#">info@company.com</a><br>
+                </address>
+            </form>
+        </div>
+    </div>
+    <!-- /.content-container -->
+    <!-- footer -->
+    <?php new Home_FooterPlugin(); ?>
+    <!-- /.footer -->
+</div>
+<?php foreach ($this->get_static_js_list() as $js): ?>
+    <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+<?php endforeach; ?>
+<!--<script type="text/javascript" src="js/templatemo_script.js"></script>-->
+<script type="text/javascript">
+    loadScript();
+</script>
+
+<?php $this->begain_script_block(); ?>
+<script>
+	var HomeContact = new Home.Contact();
+    HomeContact.init();
+</script>
+<?php $this->end_script_block(); ?>

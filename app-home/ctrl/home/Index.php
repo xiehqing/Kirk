@@ -15,7 +15,7 @@ class IndexCtrl extends HomeBaseCtrl {
 
         $nav_data = $this->get_menu_for_nav();
         $header_data = $this->get_notice_for_header();
-
+        $footer_data = $this->get_friends_link_for_footer();
         $bll_photo = new \Bll\Home\Photo();
         $photo_info = $bll_photo->get_photo_info_by_status(\Bll\Home\Photo::STATUS_PASSED,$limit);
         $photo_count = $bll_photo->get_photo_count_by_status(\Bll\Home\Photo::STATUS_PASSED);
@@ -32,6 +32,7 @@ class IndexCtrl extends HomeBaseCtrl {
         $request->set_attribute("pages",$pages);
         $request->set_attribute("nav_data",$nav_data);
         $request->set_attribute("header_data",$header_data);
+        $request->set_attribute("footer_data",$footer_data);
 
 
         return 'Home\Index';

@@ -15,3 +15,13 @@ $config['router']['Home\Search'] = array('^\/search$');
 $config['router']['Home\Api\ApiBase'] = array(
     '^\/home\/api$'
 );
+
+$config['router']['Home\About'] = array(
+    '^\/about$'
+);
+$config['router']['Home\Project'] = array(
+    '^\/project$'
+);
+$config['router']['Home\Contact'] = array(
+    '^\/contact$'
+);

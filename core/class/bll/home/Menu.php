@@ -26,6 +26,7 @@ class Menu extends Bll {
      * @return array
      */
     public function get_first_menu_by_status($status="",$pid="",$limit){
+        $fields = "id,p_id,name,ename,url,sort,status";
         $where = [];
         if ($pid != ""){
             $where['p_id'] = $pid;
@@ -33,7 +34,8 @@ class Menu extends Bll {
         if ($status){
             $where['status'] = $status;
         }
-        return $this->get_dao()->get_by_where($where,'sort',$limit,'id,p_id,name,url,sort,status');
+        $order = "sort";
+        return $this->get_dao()->get_by_where($where,$order,$limit,$fields);
     }
 
     /**
@@ -43,13 +45,15 @@ class Menu extends Bll {
      * @return array
      */
     public function get_passed_menu($pid="",$limit){
+        $fields = "id,p_id,name,ename,url,sort,status";
         $where = array(
             'status' => self::STATUS_PASSED,
         );
         if ($pid != ""){
             $where['p_id'] = $pid;
         }
-        return $this->get_dao()->get_by_where($where,'sort',$limit,'id,p_id,name,url,sort,status');
+        $order = "sort";
+        return $this->get_dao()->get_by_where($where,$order,$limit,$fields);
     }
 
 }

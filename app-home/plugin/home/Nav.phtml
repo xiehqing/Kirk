@@ -1,13 +1,13 @@
 <nav class="main-nav">
     <div id="logo" class="left"><a href="#">Kirk Huang</a></div>
     <ul class="nav right center-text">
-        <? foreach ($nav_data['menu'] as $value){?>
-            <li class="btn<?=$nav_data['page_dot'] == $value["name"] ? " active" : ""?>">
-                <? if ($value["url"] == "/"){?>
-                    <?=$value["name"]?>
-                <?}else{?>
-                <a href="<?=$value["url"]?>"><?=$value["name"]?></a>
-                <?}?>
+        <?php foreach ($nav_data['menu'] as $value){?>
+            <li class="btn<?php echo $nav_data['page_dot'] == $value["ename"] ? " active" : ""?>">
+                <?php if ($nav_data['page_dot'] == $value["ename"]){?>
+                    <?php echo $value["name"]?>
+                <?php }else{ ?>
+                <a href="<?php echo $value["url"]?>"><?php echo $value["name"]?></a>
+                <?php } ?>
             </li>
         <?}?>
     </ul>

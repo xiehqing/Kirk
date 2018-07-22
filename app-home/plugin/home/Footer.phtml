@@ -1,11 +1,8 @@
 <footer>
     <p>Copyright &copy; 2018 Kirk  <a href="http://debug.cool/" target="_blank">debug.cool</a></p>
     <div class="social right">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-google-plus"></i></a>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <? foreach ($footer_data['friends_link'] as $value){?>
+            <span><a href="<?=$value['url']?>" title="<?=$value['abs']?>"><?=$value['title']?></a></span>&nbsp;&nbsp;
+        <?}?>
     </div>
 </footer>

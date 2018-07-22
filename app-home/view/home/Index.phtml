@@ -1,13 +1,12 @@
 <div class="main-container">
-    <?php
-        new Home_NavPlugin();
-    ?>
-
+    <!-- nav -->
+    <?php new Home_NavPlugin(); ?>
+    <!-- /.nav -->
+    <!-- content-container -->
     <div class="content-container">
-        <?php
-        new Home_HeaderPlugin();
-        ?>
-
+        <!-- Header -->
+        <?php new Home_HeaderPlugin(); ?>
+        <!-- /.Header -->
         <div id="portfolio-content" class="center-text">
 
             <div class="portfolio-page" id="page-<?=$page['page']?>">
@@ -25,30 +24,21 @@
                 <?}?>
             </div>
 
-             <!-- page 3 -->
             <?php
                 new Home_PagesPlugin($pages);
             ?>
-<!--            <div class="pagination">-->
-<!--                <ul class="nav">-->
-<!--                    <li class="active">1</li>-->
-<!--                    <li>2</li>-->
-<!--                    <li>3</li>-->
-<!--                </ul>-->
-<!--            </div>-->
-
 
         </div>
-    </div>	<!-- /.content-container -->
-
-    <?php
-        new Home_FooterPlugin();
-    ?>
+    </div>
+    <!-- /.content-container -->
+    <!-- footer -->
+    <?php new Home_FooterPlugin(); ?>
+    <!-- /.footer -->
 </div>
 <?php foreach ($this->get_static_js_list() as $js): ?>
     <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
 <?php endforeach; ?>
-<script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
+<!--<script type="text/javascript" src="--><?//= $this->build_js_url() ?><!--"></script>-->
 
 <script type="text/javascript">
     $(function () {

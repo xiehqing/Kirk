@@ -24,4 +24,10 @@ abstract class HomeBaseCtrl extends BaseCtrl{
         $result['notice'] = $bll_home_notice->get_last_passed_notice();
         return $result;
     }
+
+    public function get_friends_link_for_footer(){
+        $bll_home_friends = new \Bll\Home\Friends();
+        $result['friends_link'] = $bll_home_friends->get_friends_link(\Bll\Home\Friends::STATUS_PASSED,"0,5");
+        return $result;
+    }
 }

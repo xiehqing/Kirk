@@ -4,6 +4,7 @@ create table `tb_home_menu`(
   `id` int unsigned auto_increment primary key ,
   `p_id` int unsigned not null default 0 comment '父级菜单id',
   `name` varchar(20) not null default '' comment '菜单名',
+  `ename` varchar(20) not null default '' comment '英文菜单名',
   `url` varchar(255) not null default '#' comment '链接地址',
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1不可用，2top左侧，3top右侧',
@@ -100,6 +101,20 @@ CREATE TABLE `tb_home_notice`(
   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
 )engine =InnoDB auto_increment=1 default charset =utf8;
 ALTER TABLE tb_home_notice COMMENT = 'Home-公告表';
+
+-- 友链表
+CREATE TABLE `tb_home_friends`(
+  `id` int unsigned auto_increment primary key ,
+  `title` varchar(100) not null default '' comment '友链标题',
+  `url` varchar(255) not null default '' comment '友链路径(如果有跳转)',
+  `abs` varchar (255) not null default '' comment '友链简介',
+  `content` varchar(2500) not null default '' comment '友链描述内容',
+  `sort` int unsigned not null default 0 comment '排序',
+  `status` int unsigned not null default 1 comment '状态：1待审，2可用',
+  `create_time` timestamp not null default current_timestamp,
+  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+)engine =InnoDB auto_increment=1 default charset =utf8;
+ALTER TABLE tb_home_friends COMMENT = 'Home-友链表';
 
 -- 联系方式
 CREATE TABLE `tb_home_contact`(
