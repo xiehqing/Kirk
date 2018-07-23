@@ -9,14 +9,27 @@
         <!-- /.Header -->
         <div id="portfolio-content" class="center-text">
 
-            <div class="portfolio-page" id="page-<?=$page['page']?>">
-                <? foreach ($photo_info as $value) {?>
+            <div class="portfolio-page" id="page-<?php echo $page['page']?>">
+                <?php if ($photo_info){?>
+                    <?php foreach ($photo_info as $value) {?>
+                        <div class="portfolio-group">
+                            <a class="portfolio-item" href="<?php echo UrlBuilder::build_static($value['path']); ?>">
+                                <img src="<?php echo UrlBuilder::build_static($value['path']); ?>" alt="<?php echo $value['title']?>">
+                                <div class="detail">
+                                    <h3><?php echo $value['title']?></h3>
+                                    <p><?php echo $value['abs']?></p>
+                                    <span class="btn">View</span>
+                                </div>
+                             </a>
+                        </div>
+                    <?}?>
+                <?php }else{ ?>
                     <div class="portfolio-group">
-                        <a class="portfolio-item" href="<?= UrlBuilder::build_static($value['path']); ?>">
-                            <img src="<?= UrlBuilder::build_static($value['path']); ?>" alt="image 1">
+                        <a class="portfolio-item" href="#">
+                            <img src="#" alt="暂无数据">
                             <div class="detail">
-                                <h3><?=$value['title']?></h3>
-                                <p><?=$value['abs']?></p>
+                                <h3>暂无数据</h3>
+                                <p>暂无数据</p>
                                 <span class="btn">View</span>
                             </div>
                         </a>
