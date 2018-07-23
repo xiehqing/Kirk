@@ -37,9 +37,7 @@
                 <?php } ?>
             </div>
 
-            <?php
-                new Home_PagesPlugin($pages);
-            ?>
+            <?php new Home_PagesPlugin($pages); ?>
 
         </div>
     </div>
@@ -63,7 +61,7 @@
         });
     });
 </script>
-
+<script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
 <?php $this->begain_script_block(); ?>
 <script>
     var index = new Home.Index();

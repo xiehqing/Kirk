@@ -7,27 +7,24 @@
     <?php endif; ?>
 
     <?php if ($this->get_description()) : ?>
-        <meta name="Description" content="<?php echo $this->get_description() ?>"/>
+    <meta name="Description" content="<?php echo $this->get_description() ?>"/>
     <?php endif; ?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php foreach ($this->get_static_css_list() as $css): ?>
-        <link rel="stylesheet" rev="stylesheet" href="<?php echo UrlBuilder::build_static($css); ?>" type="text/css"/>
+    <link rel="stylesheet" rev="stylesheet" href="<?php echo UrlBuilder::build_static($css); ?>" type="text/css"/>
     <?php endforeach; ?>
 
 </head>
-<body>
+<body> 
 
 <?php
     $this->build_content();
 ?>
 
-<script>
-    var homeFrame = new HomeFrame();
-    homeFrame.init();
-</script>
 <?php $this->write_script_blocks(); ?>
+
 </body>
 </html>
