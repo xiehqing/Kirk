@@ -34,7 +34,6 @@ class IndexCtrl extends HomeBaseCtrl {
         $request->set_attribute("header_data",$header_data);
         $request->set_attribute("footer_data",$footer_data);
 
-
         return 'Home\Index';
     }
 
