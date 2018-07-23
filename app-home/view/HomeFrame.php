@@ -26,12 +26,12 @@ abstract class HomeFrameView extends View {
         );
     }
 
-    public static function get_js_list() {
-        return array_merge(
-            parent::get_js_list(), array(
-            'HomeFrame'
-        ));
-    }
+//    public static function get_js_list() {
+//        return array_merge(
+//            parent::get_js_list(), array(
+//            'HomeFrame'
+//        ));
+//    }
 
     public static function get_plugin() {
         return array(
