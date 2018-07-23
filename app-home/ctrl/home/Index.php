@@ -3,6 +3,7 @@ namespace Home;
 use KIRK;
 class IndexCtrl extends HomeBaseCtrl {
     const PAGE_MUM = 8;
+
     /**
      * @param $params
      * @param \HomeRequest $request
@@ -37,6 +38,9 @@ class IndexCtrl extends HomeBaseCtrl {
         return 'Home\Index';
     }
 
+    /**
+     * @return mixed|string
+     */
     public function get_page_value(){
         return "Home";
     }

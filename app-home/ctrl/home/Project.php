@@ -21,6 +21,10 @@ class ProjectCtrl extends HomeBaseCtrl {
 
         return 'Home\Project';
     }
+
+    /**
+     * @return mixed|string
+     */
     public function get_page_value(){
         return "Project";
     }

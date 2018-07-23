@@ -22,6 +22,9 @@ class ContactCtrl extends HomeBaseCtrl {
         return 'Home\Contact';
     }
 
+    /**
+     * @return string
+     */
     public function get_page_value(){
         return "Contact";
     }

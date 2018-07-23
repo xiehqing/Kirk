@@ -18,20 +18,20 @@ class BaseCtrl extends ActionCtrl {
 
 //    public $api_log_bll;
 
-    /**
-     * 构造函数
-     * BaseCtrl constructor.
-     */
+//    /**
+//     * 构造函数
+//     * BaseCtrl constructor.
+//     */
 //    public function __construct() {
 //        $this->api_log_bll = new Bll_Home_ApiLog();
 //        $this->start_time = round(microtime(true) *1000);
 //        $this->input_params = KIRK::get_instance()->get_request()->get_params();
 //    }
 
-    /**
-     * 析构函数
-     * BaseCtrl destructor
-     */
+//    /**
+//     * 析构函数
+//     * BaseCtrl destructor
+//     */
 //    public function __destruct() {
 //        if (isset($this->input_params['action'])){
 //            $this->api_log();
@@ -42,6 +42,12 @@ class BaseCtrl extends ActionCtrl {
 //        $this->end_time = round(microtime(true) * 1000);
 //        $this->api_log_bll->api_log($this->input_params,$this->output_params,$this->end_time,$this->start_time);
 //    }
+
+    /**
+     * @param array $data
+     * @param string $msg
+     * @return array
+     */
     public function success($data = [], $msg = '请求成功！') {
         $data = $this->format_value($data);
         return array(
@@ -51,6 +57,12 @@ class BaseCtrl extends ActionCtrl {
         );
     }
 
+    /**
+     * @param int $status
+     * @param string $msg
+     * @param array $data
+     * @return array
+     */
     public function error($status = 1, $msg = '',$data = []) {
 //        $data = $this->format_value($data);
         return array(
@@ -60,6 +72,10 @@ class BaseCtrl extends ActionCtrl {
         );
     }
 
+    /**
+     * @param $arr
+     * @return array
+     */
     public function format_value(&$arr) {
         if (empty($arr)) {
             $arr = array();
@@ -81,6 +97,10 @@ class BaseCtrl extends ActionCtrl {
         return $arr;
     }
 
+    /**
+     * @param $status
+     * @return mixed
+     */
     private function get_status_message($status) {
         $code_message_list = array(
             0 => '请求成功',
