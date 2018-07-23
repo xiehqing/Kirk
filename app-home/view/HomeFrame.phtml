@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 
 <head>
-    <title><?= $this->get_title() ?></title>
+    <title><?php echo $this->get_title() ?></title>
     <?php if ($this->get_keywords()) : ?>
-        <meta name="Keywords" content="<?= $this->get_keywords() ?>"/>
+        <meta name="Keywords" content="<?php echo $this->get_keywords() ?>"/>
     <?php endif; ?>
 
     <?php if ($this->get_description()) : ?>
-        <meta name="Description" content="<?= $this->get_description() ?>"/>
+        <meta name="Description" content="<?php echo $this->get_description() ?>"/>
     <?php endif; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <?php foreach ($this->get_static_css_list() as $css): ?>
-        <link rel="stylesheet" rev="stylesheet" href="<?= UrlBuilder::build_static($css); ?>" type="text/css"/>
+        <link rel="stylesheet" rev="stylesheet" href="<?php echo UrlBuilder::build_static($css); ?>" type="text/css"/>
     <?php endforeach; ?>
 
 </head>
@@ -26,10 +26,10 @@
 ?>
 
 <?php foreach ($this->get_static_js_list() as $js): ?>
-    <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+    <script type="text/javascript" src="<?php echo UrlBuilder::build_static($js); ?>"></script>
 <?php endforeach; ?>
 
-<script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
+<script type="text/javascript" src="<?php echo $this->build_js_url() ?>"></script>
 
 <script>
     var homeFrame = new HomeFrame();

@@ -22,7 +22,7 @@
                                 </div>
                              </a>
                         </div>
-                    <?}?>
+                    <?php }?>
                 <?php }else{ ?>
                     <div class="portfolio-group">
                         <a class="portfolio-item" href="#">
@@ -34,7 +34,7 @@
                             </div>
                         </a>
                     </div>
-                <?}?>
+                <?php } ?>
             </div>
 
             <?php
@@ -49,9 +49,9 @@
     <!-- /.footer -->
 </div>
 <?php foreach ($this->get_static_js_list() as $js): ?>
-    <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+    <script type="text/javascript" src="<?php echo UrlBuilder::build_static($js); ?>"></script>
 <?php endforeach; ?>
-<!--<script type="text/javascript" src="--><?//= $this->build_js_url() ?><!--"></script>-->
+
 
 <script type="text/javascript">
     $(function () {
