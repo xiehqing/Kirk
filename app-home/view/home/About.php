@@ -26,7 +26,6 @@ class AboutView extends HomeFrameView {
         return array_merge(
             parent::get_static_css_list(), array(
             'home/css/font-awesome.min.css',
-            'home/css/magnific-popup.css',
             'home/css/templatemo_style.css',
         ));
     }
@@ -40,6 +39,6 @@ class AboutView extends HomeFrameView {
 	}
 
     public function get_title() {
-        return '测试';
+        return 'About - Kirk';
     }
 }

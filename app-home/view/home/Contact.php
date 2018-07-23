@@ -18,6 +18,19 @@ class ContactView extends \HomeFrameView {
 	}
 
     /**
+     * 获取静态css资源
+     * @return array
+     */
+    public static function get_static_css_list(){
+        return array_merge(
+            parent::get_static_css_list(), array(
+            'home/css/font-awesome.min.css',
+            'home/css/magnific-popup.css',
+            'home/css/templatemo_style.css',
+        ));
+    }
+
+    /**
      * 获取静态js资源
      * @return array
      */
@@ -36,6 +49,6 @@ class ContactView extends \HomeFrameView {
 		));
 	}
     public function get_title() {
-        return '测试';
+        return 'Contact - Kirk';
     }
 }

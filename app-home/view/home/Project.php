@@ -10,6 +10,19 @@ class ProjectView extends \HomeFrameView {
 		}
 		return 'Home\Project';
 	}
+
+    /**
+     * 获取静态css资源
+     * @return array
+     */
+    public static function get_static_css_list(){
+        return array_merge(
+            parent::get_static_css_list(), array(
+            'home/css/font-awesome.min.css',
+            'home/css/templatemo_style.css',
+        ));
+    }
+
 	public static function get_css_list() {
 		return array_merge(parent::get_css_list(),
 		array(
@@ -24,6 +37,6 @@ class ProjectView extends \HomeFrameView {
 		));
 	}
     public function get_title() {
-        return '测试';
+        return 'Project - Kirk';
     }
 }
