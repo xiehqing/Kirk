@@ -10,3 +10,6 @@ $config['router']['Admin\Login'] = array(
 $config['router']['admin\home\UserVip'] = array(
     '^\/uservip$'
 );
+$config['router']['Admin\Monitor\Home'] = array(
+    '^\/home$'
+);
