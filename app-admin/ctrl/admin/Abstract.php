@@ -5,10 +5,11 @@
  * Date: 18-6-22
  * Time: 下午3:48
  */
-namespace Admin;
-use Ctrl;
-use KIRK;
-abstract class AbstractCtrl extends Ctrl {
+//namespace Admin;
+//use Ctrl;
+//use KIRK;
+kirk_require_ctrl('Ctrl');
+abstract class Admin_AbstractCtrl extends Ctrl {
 
     abstract public function run_child();
     public $admin_id = 0;

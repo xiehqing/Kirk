@@ -6,9 +6,10 @@
  * Time: 下午3:49
  */
 
-namespace Admin;
-
-class DefaultCtrl extends AbstractCtrl {
+//namespace Admin;
+kirk_require_ctrl('Admin_Abstract');
+//kirk_require_class()
+class Admin_DefaultCtrl extends Admin_AbstractCtrl {
     public function run_child() {
         return $this->auto_router();
     }

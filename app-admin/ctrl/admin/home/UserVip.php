@@ -1,11 +1,9 @@
 <?php
-namespace Admin\Home;
+//namespace Admin\Home;
 
-class UserVipCtrl extends \Ctrl {
+class Admin_Home_UserVipCtrl extends \Ctrl {
 
     public function run(){
-
-
         return 'admin\home\UserVip';
     }
 }
