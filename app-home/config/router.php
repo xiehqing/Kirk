@@ -13,7 +13,7 @@ $config['router']['Home\Index'] = array('^\/*$');
 $config['router']['Home\Search'] = array('^\/search$');
 
 $config['router']['Home\Api\ApiBase'] = array(
-    '^\/home\/api$'
+    '^\/api$'
 );
 
 $config['router']['Home\About'] = array(

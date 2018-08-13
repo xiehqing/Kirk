@@ -22,8 +22,10 @@ class ArticleCtrl extends ActionCtrl{
     # 访问方式：
     #   http://kirk.com/home/api?action=article_test_referer
     public function test_referer(){
-        print_r($_SERVER);
-        exit();
+        $data = [];
+        $data['test'] = '测试1';
+        $data['api'] = '接口';
+        return $this->success($data);
     }
 
 
