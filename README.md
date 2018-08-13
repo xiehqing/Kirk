@@ -38,19 +38,6 @@ www(我的配置是直接在github目录下)
 |   |   |---view
 |   |   |---index.php
 |   |
-|   |---app-api     # 接口模快
-|   |   |---class
-|   |   |---config
-|   |   |---ctrl
-|   |   |   |---v1
-|   |   |   |   |---admin   #一个模块对应一个控制器，新版本接口需要改动的就继承
-|   |   |   |   |---home
-|   |   |   |   |---...
-|   |   |   |---v2
-|   |   |   |---...
-|   |   |
-|   |   |---index.php       # 入口配置文件
-|   |
 |   |---app-job     # 脚本文件
 |   |   |---class           # 类文件（要执行的脚本文件）
 |   |   |   |---bin
@@ -165,20 +152,6 @@ server {
     }
 }
 
-# 接口模块
-server {
-    listen 80;
-    server_name api.huangkuankuan.cn;
-    index index.php index.html index.htm default.php;
-    root /home/kirk/github/kirk/app-api;
-    rewrite . /index.php;
-    location ~ .*\.(php|php5)?$ {
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include fastcgi_params;
-    }
-}
 ```
 
 文件系统、静态文件部署`file.conf`文件（业务量大时，可单独部署到其它服务器）：
