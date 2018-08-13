@@ -29,13 +29,10 @@ www(我的配置是直接在github目录下)
 |   |   |---view            # 视图文件
 |   |   |---index.php       # 项目A的入口文件
 |   |
-|   |---app-home    # home模块
+|   |---app-api    # api接口模块
 |   |   |---class
 |   |   |---config
 |   |   |---ctrl
-|   |   |---interceptor
-|   |   |---plugin
-|   |   |---view
 |   |   |---index.php
 |   |
 |   |---app-job     # 脚本文件
@@ -122,12 +119,12 @@ www(我的配置是直接在github目录下)
 ## 部署
 项目应用部署`kirk.conf`文件：
 ```
-# 首页模块
+# 接口模块部署
 server {
     listen 80;
-    server_name huangkuankuan.cn;
+    server_name api.huangkuankuan.cn;
     index index.php index.html index.htm default.php;
-    root /home/kirk/github/kirk/app-home;
+    root /home/kirk/github/kirk/app-api;
     rewrite . /index.php;
     location ~ .*\.(php|php5)?$ {
         fastcgi_pass 127.0.0.1:9000;
@@ -136,22 +133,6 @@ server {
         include fastcgi_params;
     }
 }
-
-# 后台管理
-server {
-    listen 80;
-    server_name admin.huangkuankuan.cn;
-    index index.php index.html index.htm default.php;
-    root /home/kirk/github/kirk/app-admin;
-    rewrite . /index.php;
-    location ~ .*\.(php|php5)?$ {
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include fastcgi_params;
-    }
-}
-
 ```
 
 文件系统、静态文件部署`file.conf`文件（业务量大时，可单独部署到其它服务器）：
@@ -170,6 +151,8 @@ server {
         include fastcgi_params;
     }
 }
+
+# 文件上传服务部署
 server {
         listen       80;
         server_name upfile.huangkuankuan.cn;
@@ -183,6 +166,7 @@ server {
             include        fastcgi_params;
         }
 }
+
 # 静态资源
 server {
     listen 80;
