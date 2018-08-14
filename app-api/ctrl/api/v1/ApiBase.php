@@ -22,7 +22,7 @@ class ApiBaseCtrl extends ApiAbstractCtrl {
         $request = KIRK::get_instance()->get_request();
         $params = $request->get_params();
         if (!$params['action']){
-            echo json_encode($this->error(1,'没有方法函数！'));
+            // 没有方法函数！
             return false;
         }
         $action = $params['action'];
@@ -31,7 +31,7 @@ class ApiBaseCtrl extends ApiAbstractCtrl {
         }else{
             $fstr = stripos($action,'_');
             if (!$fstr){
-                echo json_encode($this->error(1,'该方法不存在！'));
+                // 该方法不存在！
                 return false;
             }
             $class = 'Api\\v1\\'.ucwords(substr($action,0,$fstr)).'Ctrl';

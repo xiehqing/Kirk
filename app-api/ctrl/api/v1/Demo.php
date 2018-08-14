@@ -23,11 +23,12 @@ class DemoCtrl extends ActionCtrl{
      * 获取demo的接口配置
      * @return mixed
      */
-    public function get_demo_api_config(){
+    public function getDemoApiConfig(){
         return KIRK::get_instance()->get_config('demo_api');
     }
 
     /**
+     * 测试接口
      * @url /api/v1?action=article_referer
      * @return array
      */
@@ -43,6 +44,7 @@ class DemoCtrl extends ActionCtrl{
     }
 
     /**
+     * 测试接口
      * @url /api/v1?action=article_testReferer
      * @return array
      */
