@@ -7,6 +7,12 @@
  */
 namespace Api;
 use ActionCtrl;
-abstract class ApiAbstractCtrl extends ActionCtrl{
+
+abstract class ApiBaseCtrl extends ActionCtrl{
+
+    /**
+     * 获取api的通用配置
+     * @return mixed
+     */
     abstract public function get_api_config();
 }

@@ -6,16 +6,19 @@
  * Time: 16:57
  */
 namespace Api\V1;
-use ActionCtrl;
 use KIRK;
-use \Api\ApiRouterCtrl as ApiRoute;
+use Api\ApiBaseCtrl;
+use Api\ApiRouterCtrl as ApiRoute;
 
 /**
  * 获取Demo相关信息的接口
  * Class DemoCtrl
  * @package Api\V1
  */
-class DemoCtrl extends ActionCtrl{
+class DemoCtrl extends ApiBaseCtrl {
+
+    public function get_api_config(){}
+
     const MUST_METHOD_GET = 'GET';
     const MUST_METHOD_POST = 'POST';
 
@@ -29,23 +32,26 @@ class DemoCtrl extends ActionCtrl{
 
     /**
      * 测试接口
-     * @url /api/v1?action=article_referer
-     * @return array
+     * @url /api/v1?action=referer
      */
     public function referer(){
-        if (ApiRoute::checkMethod($_SERVER['REQUEST_METHOD'],self::MUST_METHOD_GET)){
-            $data = [];
-            $data['test'] = '测试1';
-            $data['api'] = '接口';
-            return $this->success($data);
-        }else{
-            return $this->error(1,'请求方式错误');
-        }
+        $test = new \Core\Exception\TokenException();
+        var_dump($test);
+//        if (ApiRoute::checkMethod($_SERVER['REQUEST_METHOD'],self::MUST_METHOD_GET)){
+//            $data = [];
+//            $data['test'] = '测试1';
+//            $data['api'] = '接口';
+//            return $this->success($data);
+//        }else{
+//            throw new TokenExceptionCtrl([
+//                'msg' => '测试异常！',
+//            ]);
+//        }
     }
 
     /**
      * 测试接口
-     * @url /api/v1?action=article_testReferer
+     * @url /api/v1?action=demo_testReferer
      * @return array
      */
     public function testReferer(){
