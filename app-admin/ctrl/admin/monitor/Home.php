@@ -1,6 +1,13 @@
 <?php
-kirk_require_class('Admin_Abstract');
-class Admin_Monitor_HomeCtrl extends Admin_AbstractCtrl {
+namespace Admin\Monitor;
+use Admin\AbstractCtrl as AbstractCtrl;
+use KIRK;
+
+/**
+ * Class HomeCtrl
+ * @package Admin\Monitor
+ */
+class HomeCtrl extends AbstractCtrl {
 
     public function run_child(){
         return $this->auto_route();

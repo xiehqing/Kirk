@@ -1,6 +1,11 @@
 <?php
-kirk_require_ctrl('Admin_Abstract');
-class Admin_IndexCtrl extends Admin_AbstractCtrl {
+namespace Admin;
+
+/**
+ * Class IndexCtrl
+ * @package Admin
+ */
+class IndexCtrl extends AbstractCtrl {
     public function run_child(){
         return 'Admin\Index';
     }

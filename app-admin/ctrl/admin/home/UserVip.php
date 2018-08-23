@@ -1,7 +1,12 @@
 <?php
-//namespace Admin\Home;
+namespace Admin\Home;
+use Ctrl;
 
-class Admin_Home_UserVipCtrl extends \Ctrl {
+/**
+ * Class UserVipCtrl
+ * @package Admin\Home
+ */
+class UserVipCtrl extends Ctrl {
 
     public function run(){
         return 'admin\home\UserVip';

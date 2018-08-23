@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-22
- * Time: 下午3:49
- */
+namespace Admin;
 
-//namespace Admin;
-kirk_require_ctrl('Admin_Abstract');
-//kirk_require_class()
-class Admin_DefaultCtrl extends Admin_AbstractCtrl {
+/**
+ * Class DefaultCtrl
+ * @package Admin
+ */
+class DefaultCtrl extends AbstractCtrl {
     public function run_child() {
         return $this->auto_router();
     }

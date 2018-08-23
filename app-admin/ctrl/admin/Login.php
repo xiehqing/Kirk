@@ -1,8 +1,12 @@
 <?php
-//namespace Admin;
-//use Ctrl;
-kirk_require_ctrl('Ctrl');
-class Admin_LoginCtrl extends Ctrl {
+namespace Admin;
+use Ctrl;
+
+/**
+ * Class LoginCtrl
+ * @package Admin
+ */
+class LoginCtrl extends Ctrl {
     public function run() {
         return 'Admin\Login';
     }

@@ -13,3 +13,6 @@ $config['router']['admin\home\UserVip'] = array(
 $config['router']['Admin\Monitor\Home'] = array(
     '^\/home$'
 );
+$config['router']['Admin\Default1'] = array(
+    '^\/default1$'
+);
