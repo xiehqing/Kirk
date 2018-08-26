@@ -6,10 +6,12 @@
  * Time: 16:57
  */
 namespace Api\V1;
+use Api\Exception\TokenExceptionCtrl;
 use KIRK;
 use Api\ApiBaseCtrl;
 use Api\ApiRouterCtrl as ApiRoute;
-
+use Api\Exception\TokenExceptionCtrl as TokenException;
+//use CoreExcept\TokenExceptionCtrl as TokenException;
 /**
  * 获取Demo相关信息的接口
  * Class DemoCtrl
@@ -32,26 +34,30 @@ class DemoCtrl extends ApiBaseCtrl {
 
     /**
      * 测试接口
-     * @url /api/v1?action=referer
+     * @url /v1/demo?action=referer
+     * @return array
+     * @throws TokenException
      */
     public function referer(){
-        $test = new \Core\Exception\TokenException();
-        var_dump($test);
-//        if (ApiRoute::checkMethod($_SERVER['REQUEST_METHOD'],self::MUST_METHOD_GET)){
-//            $data = [];
-//            $data['test'] = '测试1';
-//            $data['api'] = '接口';
-//            return $this->success($data);
-//        }else{
-//            throw new TokenExceptionCtrl([
-//                'msg' => '测试异常！',
-//            ]);
-//        }
+//        $test = new TokenException(['msg' => 'ceshierror!']);
+//
+//        var_dump($test);
+//        die;
+        if (ApiRoute::checkMethod($_SERVER['REQUEST_METHOD'],self::MUST_METHOD_GET)) {
+            $data = [];
+            $data['test'] = '测试1';
+            $data['api'] = '接口';
+            return $this->success($data);
+        }else{
+            throw new TokenException([
+                'msg' => '测试异常！',
+            ]);
+        }
     }
 
     /**
      * 测试接口
-     * @url /api/v1?action=demo_testReferer
+     * @url /v1/demo?action=demo_testReferer
      * @return array
      */
     public function testReferer(){

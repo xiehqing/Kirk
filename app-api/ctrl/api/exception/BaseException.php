@@ -1,12 +1,17 @@
 <?php
-namespace CoreExcept;
+/**
+ * Created by PhpStorm.
+ * User: kuan
+ * Date: 18-8-26
+ * Time: 下午4:55
+ */
+namespace Api\Exception;
 use MyException;
-//kirk_require_class('MyException');
 
 /**
  * 异常类的基类
- * 封装了该类之后，以后的异常情况可以直接归纳在该类下面，作为子类进行处理
  * Class BaseException
+ * @package Api\Exception
  */
 class BaseExceptionCtrl extends MyException{
     public $code = 400;
@@ -15,18 +20,19 @@ class BaseExceptionCtrl extends MyException{
 
     public $shouldToClient = true;
 
-    public function __construct($params =[]){
-        if(!is_array($params)){
-            return;
+    public function __construct($params = []){
+        if (!is_array($params)){
+            return ;
         }
-        if(array_key_exists('code',$params)){
+        if (array_key_exists('code',$params['code'])){
             $this->code = $params['code'];
         }
-        if(array_key_exists('msg',$params)){
+        if (array_key_exists('msg',$params['msg'])){
             $this->msg = $params['msg'];
         }
-        if(array_key_exists('errorCode',$params)){
+        if (array_key_exists('errorCode', $params['errorCode'])){
             $this->errorCode = $params['errorCode'];
         }
+
     }
 }

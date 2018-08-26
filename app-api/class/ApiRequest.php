@@ -6,7 +6,7 @@
  * Time: 16:40
  */
 
-kirk_require_class('WebRequest');
+//kirk_require_class('WebRequest');
 
 class ApiRequest extends WebRequest{
 
