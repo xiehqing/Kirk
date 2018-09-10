@@ -40,7 +40,8 @@ $called_class = get_called_class();
 
 <script type="text/javascript" src="<?=$this->build_js_url()?>"></script>
 <script>
-    var homeFrame = new Home.Frame();
+    var HomeFrame = new Home.Frame();
+    HomeFrame.init();
 </script>
 <?php $this->write_script_blocks(); ?>
 </body>

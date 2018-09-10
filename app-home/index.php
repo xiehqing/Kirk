@@ -16,7 +16,6 @@ require_once(SYS_PATH.'/functions.php');
 
 $INCLUDE_PATH = array(
     CUR_PATH,
-    ROOT_PATH.'app-home',
     ROOT_PATH . 'core'
 );
 

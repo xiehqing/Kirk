@@ -28,19 +28,7 @@ abstract class HomeFrameView extends View {
         ));
     }
 
-    public static function get_plugin() {
-        return array(
-            ''
-        );
-    }
-    public function get_permit_nav_list($list) {
-        $permission = new Home_Permission(KIRK::get_instance()->get_request());
-        $list =  $permission->filter_permission($list);
-        if(!$list) {
-            die('permission denied!!!');
-        }
-        return $list;
-    }
+
     public static function get_name()
     {
         return '主页';

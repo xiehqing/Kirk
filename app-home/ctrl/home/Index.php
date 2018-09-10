@@ -1,9 +1,9 @@
 <?php
 namespace Home;
+use ActionCtrl;
+class IndexCtrl extends ActionCtrl {
 
-class IndexCtrl extends \Ctrl {
-
-    public function run(){
+    public function index(){
 
         return 'Home\Index';
     }

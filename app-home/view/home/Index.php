@@ -1,7 +1,8 @@
 <?php
 namespace Home;
 use KIRK;
-class IndexView extends \HomeFrameView {
+use HomeFrameView;
+class IndexView extends HomeFrameView {
 
     public function get_content(){
 		$data = KIRK::get_instance()->get_request()->get_attributes();
