@@ -19,7 +19,7 @@ $CONFIG_PATH = array(
 );
 
 //设置页面超时时间
-set_time_limit(RSF::get_instance()->get_config(['time_out']));
+set_time_limit(KIRK::get_instance()->get_config(['time_out']));
 
 kirk_require_class('KIRK');
 kirk_require_class('HomeRequest');
