@@ -1,8 +1,7 @@
 <?php
 namespace Home;
 use KIRK;
-use HomeFrameView;
-class IndexView extends HomeFrameView {
+class IndexView extends \HomeFrameView {
 
     public function get_content(){
 		$data = KIRK::get_instance()->get_request()->get_attributes();
@@ -25,6 +24,6 @@ class IndexView extends HomeFrameView {
 		));
 	}
     public function get_title() {
-        return '测试';
+        return 'Kirk - Home';
     }
 }
