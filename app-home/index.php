@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kuan
- * Date: 18-9-10
- * Time: 下午2:57
- */
-
 error_reporting(E_ALL & ~E_NOTICE);
 define("ROOT_PATH",dirname(dirname((__FILE__))) . '/');
 define("SYS_PATH",'../system');
@@ -20,10 +13,13 @@ $INCLUDE_PATH = array(
 );
 
 $CONFIG_PATH = array(
-    CUR_PATH . '/config',
     ROOT_PATH . 'core/config',
+    CUR_PATH . '/config',
     ROOT_PATH . 'config',
 );
+
+//设置页面超时时间
+set_time_limit(RSF::get_instance()->get_config(['time_out']));
 
 kirk_require_class('KIRK');
 kirk_require_class('HomeRequest');
