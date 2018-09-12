@@ -27,18 +27,9 @@ abstract class HomeFrameView extends View {
             'HomeFrame'
         ));
     }
-    public static function get_static_js_list() {
-        return array_merge(
-            parent::get_static_js_list(), array(
 
-        ));
-    }
-    public static function get_plugin() {
-        return array(
 
-        );
-    }
     public function get_main_section() {
-        return "index";
+        return "HomeFrame";
     }
 }
