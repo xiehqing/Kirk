@@ -9,7 +9,8 @@ create table `tb_home_menu`(
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1不可用，2top左侧，3top右侧',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+--   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 ) engine =InnoDB default charset =utf8;
 
 -- banner图表
@@ -20,7 +21,8 @@ create table `tb_home_banner`(
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 ) engine =InnoDB default charset =utf8;
 
 -- 标签表
@@ -30,7 +32,8 @@ create table `tb_home_tag`(
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 ) engine =InnoDB default charset =utf8;
 
 -- 分类表
@@ -41,7 +44,8 @@ create table `tb_home_category`(
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 ) engine =InnoDB default charset =utf8;
 
 -- 新闻表
@@ -55,7 +59,8 @@ CREATE TABLE `tb_home_news`(
 	`sort` int unsigned not null default 0 comment '排序',
 	`status` int unsigned not null default 1 comment '状态：1待审，2可用',
 	`create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 )engine =InnoDB default charset =utf8;
 
 -- 文章表
@@ -71,7 +76,8 @@ CREATE TABLE `tb_home_article`(
 	`sort` int unsigned not null default 0 comment '排序',
 	`status` int unsigned not null default 1 comment '状态：1待审，2可用',
 	`create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 )engine =InnoDB default charset =utf8;
 
 -- 相册表
@@ -84,7 +90,8 @@ CREATE TABLE `tb_home_photo`(
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 )engine =InnoDB default charset =utf8;
 ALTER TABLE tb_home_photo COMMENT = 'Home-相册表';
 
@@ -98,7 +105,8 @@ CREATE TABLE `tb_home_notice`(
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 )engine =InnoDB default charset =utf8;
 ALTER TABLE tb_home_notice COMMENT = 'Home-公告表';
 
@@ -112,7 +120,8 @@ CREATE TABLE `tb_home_friends`(
   `sort` int unsigned not null default 0 comment '排序',
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 )engine =InnoDB default charset =utf8;
 ALTER TABLE tb_home_friends COMMENT = 'Home-友链表';
 
@@ -123,7 +132,8 @@ CREATE TABLE `tb_home_contact`(
 	`content` TEXT comment '内容',
 	`status` int unsigned not null default 1 comment '状态：1待审，2可用',
 	`create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 )engine =InnoDB default charset =utf8;
 
 
@@ -140,7 +150,8 @@ create table `tb_admin_user`(
   `status` int unsigned not null default 1 comment '状态：1待审，2可用',
   `claim_time` datetime null comment '审核时间',
   `create_time` timestamp not null default current_timestamp,
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 ) engine =InnoDB default charset =utf8;
 
 
@@ -156,5 +167,6 @@ create table `tb_log_action`(
   `vpn_ip` varchar(2500) not null default '' comment '开启了代理就获取所有跳板机的ip，json格式',
   `ip` varchar(50) not null comment '真实ip',
   `create_time` int not null comment '创建时间',
-  `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  --   `last_update_time` timestamp not null default current_timestamp on update current_timestamp
+  `last_update_time` timestamp not null default current_timestamp
 ) engine =InnoDB default charset =utf8;
