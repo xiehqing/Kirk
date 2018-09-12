@@ -6,10 +6,7 @@
  * Time: 下午2:59
  */
 
-class HomeResponse extends WebResponse {
-    public function not_found() {
-        parent::not_found();
-        echo '这个页面还没建好呢！';
-        return false;
-    }
+kirk_require_class('WebRequest');
+class HomeResponse extends WebResponse{
+
 }

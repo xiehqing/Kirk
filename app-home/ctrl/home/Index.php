@@ -1,7 +1,7 @@
 <?php
 namespace Home;
-use ActionCtrl;
-class IndexCtrl extends ActionCtrl {
+
+class IndexCtrl extends BaseCtrl {
 
     public function index(){
 

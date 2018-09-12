@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-    <meta charset="utf-8">
-    <title><?=$this->get_title()?></title>
-    <meta name="renderer" content="webkit">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" rev="stylesheet" href="<?=$this->build_css_url()?>" type="text/css" />
-    <link rel="shortcut icon" href="<?=UrlBuilder::build_static('images/icon.png')?>" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title><?= $this->get_title() ?></title>
+    <?php if ($this->get_description()) : ?>
+        <meta name="Description" content="<?= $this->get_description() ?>"/>
+    <?php endif; ?>
+    <?php if ($this->get_keywords()) : ?>
+        <meta name="Keywords" content="<?= $this->get_keywords() ?>"/>
+    <?php endif; ?>
+    <link rel="stylesheet" rev="stylesheet" href="<?= $this->build_css_url() ?>" type="text/css"/>
 </head>
 <body>
+
 <?php
-$called_class = get_called_class();
+$this->build_content();
 ?>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span2">
+<div>
 
-            <?php
-            $called_class = get_called_class();
-
-            ?>
-        </div><!--/span-->
-        <div class="span10">
-            <div class="well">
-                <?php
-                $this->build_content();
-                ?>
-            </div>
-        </div><!--/span-->
-
-    </div><!--/row-->
-    <hr>
-
-</div><!--/.fluid-container-->
-<?php foreach($this->get_static_js_list() as $js):?>
-    <script type="text/javascript" src="<?=UrlBuilder::build_static($js); ?>"></script>
-<?php endforeach;?>
-
-<script type="text/javascript" src="<?=$this->build_js_url()?>"></script>
+</div>
+<?php foreach ($this->get_static_js_list() as $js): ?>
+    <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+<?php endforeach; ?>
+<script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
+<script>
+    var homeFrame = new HomeFrame();
+    homeFrame.init();
+</script>
 <?php $this->write_script_blocks(); ?>
 </body>
 </html>
