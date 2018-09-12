@@ -17,7 +17,7 @@ $CONFIG_PATH = array(
     CUR_PATH . '/config',
     ROOT_PATH . 'config',
 );
-
+phpinfo();die;
 //设置页面超时时间
 set_time_limit(KIRK::get_instance()->get_config(['time_out']));
 
