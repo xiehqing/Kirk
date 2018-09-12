@@ -4,7 +4,7 @@ namespace Home;
 class IndexCtrl extends BaseCtrl {
 
     public function index(){
-
-        return 'Home\Index';
+var_dump('test');
+//        return 'Home\Index';
     }
 }
