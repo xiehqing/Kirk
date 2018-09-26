@@ -2,6 +2,7 @@
 	"require": {
 		"monolog/monolog": "1.0.*",
 		"graphaware/neo4j-php-client": "^4.0",
-		"nmred/kafka-php": "0.2.*"
+		"nmred/kafka-php": "0.2.*",
+		"overtrue/easy-sms": "^1.1"
 	}
 }
