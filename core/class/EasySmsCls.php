@@ -8,7 +8,7 @@
 namespace core;
 use KIRK;
 use Overtrue\EasySms\EasySms;
-class OverTrueEasySms {
+class EasySmsCls {
 
     /**
      * 集成一套万能的短信发送服务
