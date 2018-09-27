@@ -1,40 +1,40 @@
-**Read this in other languages: [English](README-EN.md).**  
+**Read this in other languages: [中文](README.md).** 
 # Kirk
-一套PHP框架
+A PHP Framework.
 
-[演示地址](http://huangkuankuan.cn)
+[Demo Site](http://huangkuankuan.cn)
 
-借鉴了[RSF框架](https://github.com/suxianbaozi/RSF/)
+refer by [RSF Framework](https://github.com/suxianbaozi/RSF/)
 
 ## 框架目录结构
 ```
 ======================================= Kirk =======================================
-www(我的配置是直接在github目录下)
+www(Project file under github document in my VPS)
 |---kirk # 主要的项目文件（依赖较多，更新相对频繁的部分）
 |   |
-|   |---app-admin           # admin模块
-|   |   |---class           # 类文件
-|   |   |---config          # 项目内配置文件
-|   |   |---ctrl            # 控制器
-|   |   |---interceptor     # 拦截器
-|   |   |---plugin          # 视图插件
-|   |   |---view            # 视图文件
-|   |   |---index.php       # 项目A的入口文件
+|   |---app-admin           # Admin Module
+|   |   |---class
+|   |   |---config
+|   |   |---ctrl
+|   |   |---interceptor
+|   |   |---plugin
+|   |   |---view
+|   |   |---index.php
 |   |
-|   |---app-api             # api接口模块
+|   |---app-api             # API Module
 |   |   |---class
 |   |   |---config
 |   |   |---ctrl
 |   |   |---index.php
 |   |
-|   |---app-job             # 脚本文件
-|   |   |---class           # 类文件（要执行的脚本文件）
+|   |---app-job             # Script Module
+|   |   |---class
 |   |   |   |---bin
 |   |   |---config
-|   |   |---run.php         # 脚本启动文件
+|   |   |---run.php         # Active The Job
 |   |
-|   |---app-static          # 静态文件模块
-|   |   |---admin           # admin 模块
+|   |---app-static          # Static Module
+|   |   |---admin           # Store Admin Module' Ststic Files
 |   |   |   |---css
 |   |   |   |---js
 |   |   |   |---fonts
@@ -44,7 +44,7 @@ www(我的配置是直接在github目录下)
 |   |   |---home
 |   |   |...
 |   |
-|   |---core                # 核心文件
+|   |---core                # Core Module
 |   |   |---class
 |   |   |---config
 |   |   |---ctrl
@@ -52,25 +52,25 @@ www(我的配置是直接在github目录下)
 |   |   |---plugin
 |   |   |---view
 |   |
-|   |---config              # 本地配置文件（开发者本地部署）
+|   |---config              # Local Config Module
 |   |   |---common.php
 |   |   |---database.php
 |   |   |---interceptor.php
 |   |   |---pay.php
 |   |   | ...
 |   |
-|   |---system              # 系统文件
+|   |---system              # System Module
 |   |   |---class
 |   |   |---ctrl
 |   |   |---interceptor
 |   |   |---plugin
 |   |   |---view
-|   |   |---functions.php   # 系统方法
+|   |   |---functions.php   # System Common Functions
 |   |   | ...
 |   |
-|   |---log                 # 日志文件
+|   |---log                 # Log Files
 |   |
-|   |---vendor              # 外部依赖包
+|   |---vendor              # Vendor Package
 |   |
 |   |--- ...
 |
@@ -79,10 +79,10 @@ www(我的配置是直接在github目录下)
 ======================================= Kirk =======================================
 ```
 
-## 部署
-项目应用部署`kirk.conf`文件：
+## Deploy
+config file named `kirk.conf` under `/etc/nginx`：
 
-### 首页模块部署
+### Home Module
 ```
 server {
     listen 80;
@@ -99,7 +99,7 @@ server {
 }
 ```
 
-### 后台模块部署
+### Admin Module
 ```
 server {
     listen 80;
@@ -116,7 +116,7 @@ server {
 }
 ```
 
-### 接口模块部署
+### API Module
 ```
 server {
     listen 80;
@@ -133,8 +133,8 @@ server {
 }
 ```
 
-### 静态文件模块部署
-业务量大时，可单独部署到其它服务器。
+### Static File Module
+If your project is heavy, you can chose anther VPS to deploy the static file module.
 ```
 server {
     listen 80;
@@ -145,10 +145,11 @@ server {
 }
 ```
 
-## 注意
+## Notice
 
-`nginx`重写路由绝对不允许指向项目根目录。在开发环境通过执行`Tool.php`可生成对应dao、bll、ctrl、view等代码，辅助开发，但线上环境必须删除`Tool.php`。
+Can't direct to project's root document when setting rewrite route!
+In development, you can run the `Tool.php` to build those files about `dao`、`bll`、`ctrl`、`view` etc... But in production, you must delete the file `Tool.php`.
 
-## 参考列表
+## Refer List
 
-* [RSF框架](https://github.com/suxianbaozi/RSF/)
+* [RSF Framework](https://github.com/suxianbaozi/RSF/)
