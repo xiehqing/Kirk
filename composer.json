@@ -10,7 +10,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"ClanceyHuang\\Kirk\\": "./"
+			"ClanceyHuang\\Kirk\\": "system/"
 		}
 	},
 	"require": {
