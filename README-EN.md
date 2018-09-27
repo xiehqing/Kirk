@@ -6,7 +6,7 @@ A PHP Framework.
 
 refer by [RSF Framework](https://github.com/suxianbaozi/RSF/)
 
-## 框架目录结构
+## Project Structure
 ```
 ======================================= Kirk =======================================
 www(Project file under github document in my VPS)
