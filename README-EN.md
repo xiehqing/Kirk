@@ -10,7 +10,7 @@ refer by [RSF Framework](https://github.com/suxianbaozi/RSF/)
 ```
 ======================================= Kirk =======================================
 www(Project file under github document in my VPS)
-|---kirk # 主要的项目文件（依赖较多，更新相对频繁的部分）
+|---kirk
 |   |
 |   |---app-admin           # Admin Module
 |   |   |---class
