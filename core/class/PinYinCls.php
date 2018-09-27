@@ -16,8 +16,8 @@ class PinYinCls {
     const PINYIN_TONE = 2;          // 带音标
     const PINYIN_ASCII_TONE = 3;    // 带数字表示的音标
 
-    const PINYIN_KEEP_NUMBER = 1;   //
-    const PINYIN_KEEP_ENGLISH = 2;  //
+    const PINYIN_KEEP_NUMBER = 1;   // 保持数字
+    const PINYIN_KEEP_ENGLISH = 2;  // 保持英文
 
     /**
      * 根据loaderName选择类型进行实例化
