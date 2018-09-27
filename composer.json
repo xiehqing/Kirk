@@ -8,6 +8,11 @@
 			"email": "clanceyhuang@gmail.com"
 		}
 	],
+	"autoload": {
+		"psr-4": {
+			"ClanceyHuang\\Kirk\\": "./"
+		}
+	},
 	"require": {
 		"monolog/monolog": "1.0.*",
 		"graphaware/neo4j-php-client": "^4.0",
