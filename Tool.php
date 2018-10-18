@@ -16,6 +16,9 @@
 #   建立bll
 #       php Tool.php create-bll classname dao_name
 #       php Tool.php create-bll Bll\\Home\\Notice Dao\\Home\\Notice
+#   建立plugin
+#       php Tool.php create-plugin mode_name class_name
+#       php Tool.php create-plugin app-home Home\\Header
 
 error_reporting(E_ALL & ~E_NOTICE);
 

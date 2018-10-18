@@ -10,14 +10,17 @@
         <meta name="Keywords" content="<?= $this->get_keywords() ?>"/>
     <?php endif; ?>
     <link rel="stylesheet" rev="stylesheet" href="<?= $this->build_css_url() ?>" type="text/css"/>
+    <script>
+
+    </script>
 </head>
 <body>
-
+<? new Home\HeaderPlugin(array('section' => $this->get_main_section())); ?>
 <?php
 $this->build_content();
 ?>
 <div>
-
+    <? new Home\FooterPlugin(); ?>
 </div>
 <?php foreach ($this->get_static_js_list() as $js): ?>
     <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
