@@ -44,27 +44,18 @@ class AdminUserLog extends Bll {
     }
 
     /**
-     * 统计最近七天每天的登录次数
-     * @param $day
+     * 获取最近七天的数据
      * @param $user_id
-     * @param $action_type
-     * @return mixed
+     * @return array
      */
-    public function count_data_for_admin($day,$user_id,$action_type){
-        if ($day>1){
-            $dateFrom = date("Y-m-d",strtotime("-{$day} day"));
-            $dateTo = date('Y-m-d',strtotime("-{$day} day"));
-            $where['create_time >='] = $dateFrom;
-            $where['create_time <='] = $dateTo;
-        }
-
-
-        if ($digest){
-            $where['company_name_digest'] = $digest;
-        }
-        if ($status){
-            $where['status'] = $status;
-        }
-        return $this->get_dao()->get_count_by_where($where);
+    public function getLastSevenLoginLogByUid($user_id){
+        $where = [
+            'user_id' => $user_id,
+            'action_type' => self::TYPE_LOGIN,
+            'status' => self::STATUS_USEFUL,
+            'create_time >=' => date("Y-m-d",strtotime("-7 day"))
+        ];
+        return $this->get_dao()->get_by_where($where);
     }
+
 }

@@ -13,7 +13,7 @@ Admin.Index.prototype = {
         var params={
             url:'/',
             type:'post',
-            data:{action:'getRandomData'},
+            data:{action:'getLastSevenData'},
             sCallback:function(result){
                 var res =JSON.parse(result);
                 console.log(res);
