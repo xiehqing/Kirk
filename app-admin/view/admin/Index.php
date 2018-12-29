@@ -1,6 +1,7 @@
 <?php
 namespace Admin;
 use KIRK;
+
 class IndexView extends \AdminFrameView {
 
     public function get_content(){
@@ -13,17 +14,26 @@ class IndexView extends \AdminFrameView {
 	public static function get_css_list() {
 		return array_merge(parent::get_css_list(),
 		array(
-			'Admin\Index'
+			'Admin\Index',
 		));
 	}
-	public static function get_js_list() {
+
+
+    public static function get_js_list() {
 		return array_merge(
 		parent::get_js_list(),
 		array(
 			'Admin\Index'
 		));
 	}
+
+
     public function get_title() {
-        return 'Kirk - Admin';
+        return '后台管理 - 主页';
+    }
+
+    public function get_keywords()
+    {
+        return 'just a test demo!';
     }
 }

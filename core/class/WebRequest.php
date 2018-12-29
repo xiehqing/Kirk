@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-11
- * Time: 下午3:32
- */
+
 class WebRequest extends Request{
     public function get_url(){
         return 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];

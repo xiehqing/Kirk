@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 用来解决表里数据过少,但是又要持续缓存过多的问题,因为大量的表是通过某个唯一的字段unique_key进行查询的
  * 主要是用来直接判断主key查询是否存在
@@ -11,13 +12,7 @@
  * 2.表的写入不能太频繁,比如每秒几百个,虽然这样不会出什么问题,但是如果redis挂掉,数据就很难同步上来,会出现异常
  * 3.比如有一个主查询字段,类似unique_key,如果没有这种字段,使用这个cache也没什么意义,注意迁移机房的问题
  * Class LittleTableCacheDao
- * @package Dao
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-7-5
- * Time: 下午7:54
  */
-
 abstract class LittleTableCacheDao extends \Dao_CacheDao {
     private $cache = null;
     public function get_cache(){

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title-->
+    <title><?=$this->get_title()?></title>
+
+    <?php if ($this->get_author()) : ?>
+        <!-- author-->
+        <meta name="author" content="<?= $this->get_author() ?>"/>
+    <?php endif; ?>
+
+    <?php if ($this->get_keywords()) : ?>
+        <!-- keywords-->
+        <meta name="Keywords" content="<?= $this->get_keywords() ?>"/>
+    <?php endif; ?>
+
+    <!-- Bootstrap Core CSS -->
+    <?php foreach ($this->get_static_css_list() as $css): ?>
+        <link rel="stylesheet" href="<?= UrlBuilder::build_static($css) ?>" />
+    <?php endforeach; ?>
+    <link rel="stylesheet" rev="stylesheet" href="<?=$this->build_css_url() ?>" type="text/css"/>
+    <link rel="shortcut icon" href="<?=UrlBuilder::build_static('common/images/favicon.ico')?>" />
+
+</head>
+<body>
+
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <!--顶部header Start-->
+        <?php new Admin\Demo\TopHeaderPlugin(Kirk::get_instance()->get_request()->get_attribute('top_header_data')); ?>
+        <!--顶部header End-->
+
+
+    </nav>
+
+
+    <!-- 左侧菜单 Start-->
+    <?php new Admin\Demo\LeftMenuPlugin(Kirk::get_instance()->get_request()->get_attribute('left_menu_data')); ?>
+    <!-- 左侧菜单 End-->
+
+    <!-- 主体内容 Start-->
+    <?php $this->build_content(); ?>
+
+    <!-- 主体内容 End-->
+
+
+</div>
+
+<?php foreach ($this->get_static_js_list() as $js): ?>
+    <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+<?php endforeach; ?>
+
+<script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
+<script>
+    var AdminDemoDemoFrame = new Admin.Demo.DemoFrame();
+    AdminDemoDemoFrame.init();
+</script>
+<?php $this->write_script_blocks(); ?>
+
+</body>
+</html>

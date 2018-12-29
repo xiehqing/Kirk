@@ -1,9 +1,8 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-7-21
- * Time: 上午11:53
+ * 分页类
+ * Class PageCreater
  */
 class PageCreater{
     private $data = array();

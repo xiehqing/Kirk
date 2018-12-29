@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kuan
- * Date: 18-9-26
- * Time: 下午5:59
- */
 namespace core;
 use KIRK;
 use Overtrue\EasySms\EasySms;

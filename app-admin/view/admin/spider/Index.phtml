@@ -1,0 +1,35 @@
+<input type="button" class="normal-btn add-spider" value="+ 添加爬虫">
+<div class="spider-box">
+    <table cellspacing="0" ng-show="docArr.length>0">
+        <thead>
+        <tr>
+            <td>爬虫编号</td>
+            <td>爬虫名称</td>
+            <td>爬取数据条数</td>
+            <td>爬虫状态</td>
+            <td>已运行时间</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody id="spider-table">
+
+        </tbody>
+    </table>
+    <div class="load-more">点击加载更多</div>
+    <div class="no-more">没有更多爬虫了</div>
+</div>
+
+<div class="switchPopView">
+    <?php new Admin\PopFramePlugin(); ?>
+</div>
+
+
+
+
+
+<?php $this->begain_script_block(); ?>
+<script>
+	var AdminSpiderIndex = new Admin.Spider.Index();
+    AdminSpiderIndex.init();
+</script>
+<?php $this->end_script_block(); ?>

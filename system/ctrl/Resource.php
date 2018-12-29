@@ -3,7 +3,8 @@
 kirk_require_ctrl("Ctrl");
 
 class ResourceCtrl extends Ctrl {
-    private $code_logo = '//                            _ooOoo_    
+    private $code_logo = '
+//                            _ooOoo_    
 //                           o8888888o    
 //                           88" . "88    
 //                           (| -_- |)    

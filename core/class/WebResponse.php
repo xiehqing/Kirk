@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-11
- * Time: 下午2:40
- */
 
 kirk_require_class('Response');
 kirk_require_class('UrlBuilder');

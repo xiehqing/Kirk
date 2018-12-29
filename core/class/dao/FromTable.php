@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kuan
- * Date: 2018/6/29
- * Time: 10:23
- */
 kirk_require_class('Dao_CacheDao');
-
 class Dao_FromTable extends Dao_CacheDao {
     public $create_db = '';
     public $create_table_name = '';

@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-21
- * Time: 下午2:24
- */
-
 kirk_require_class('Dao');
 abstract class Dao_CacheDao extends Dao {
     public $is_cache = true;

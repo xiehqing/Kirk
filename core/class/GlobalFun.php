@@ -1,11 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-11
- * Time: 下午5:53
- */
 
+/**
+ * 全局方法类
+ * Class GlobalFun
+ */
 class GlobalFun{
 
     /**

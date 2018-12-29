@@ -1,12 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kuan
- * Date: 18-9-26
- * Time: 下午6:56
- */
 namespace core;
 use Overtrue\Pinyin\Pinyin;
+
+/**
+ * 拼音类
+ * Class PinYinCls
+ * @package core
+ */
 class PinYinCls {
     const LITTLE_MEM_TYPE = 1;      // 小内存型: 将字典分片载入内存
     const MEM_TYPE = 2;             // 内存型: 将所有字典预先载入内存
@@ -24,7 +24,7 @@ class PinYinCls {
      * @param $loaderName
      * @return Pinyin
      */
-    public function choseLoaderName($loaderName){
+    private function choseLoaderName($loaderName){
         // 选择需要实例化的类型($loaderName)
         if ($loaderName == self::MEM_TYPE){
             // 内存型

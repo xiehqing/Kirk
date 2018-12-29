@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-12
- * Time: 下午2:05
- */
 
 $config['pinyin'] = '啊`a
 阿`a

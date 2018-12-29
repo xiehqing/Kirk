@@ -1,70 +1,89 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-22
- * Time: 下午4:38
- */
-
-kirk_require_view('View');
+kirk_require_class('View');
 kirk_require_class('UrlBuilder');
-kirk_require_plugin('Admin_Header');
-kirk_require_plugin('Admin_Nav');
-kirk_require_plugin('Admin_Footer');
-kirk_require_plugin('Admin_Pages');
-abstract class AdminFrameView extends View {
+kirk_require_plugin('Admin\LeftMenu');
+kirk_require_plugin('Admin\TopHeader');
+kirk_require_plugin('Admin\PopFrame');
+abstract class AdminFrameView extends View{
+
+    public function get_container() {
+        return 'AdminFrame';
+    }
+
+    /**
+     * 获取外部静态css
+     * @return array
+     */
+    public static function get_static_css_list()
+    {
+        return array_merge(parent::get_static_css_list(),
+        array(
+            'vendor/bootstrap/css/bootstrap.min.css',
+            'vendor/metisMenu/metisMenu.min.css',
+            'dist/css/sb-admin-2.css',
+            'vendor/morrisjs/morris.css',
+            'vendor/font-awesome/css/font-awesome.min.css'
+        ));
+    }
+
+    /**
+     * 获取自定义的css
+     * @return array
+     */
     public static function get_css_list() {
         return array(
             'AdminFrame',
-            'Bootstrap_Bootstrap.min',
-            'Bootstrap_Bootstrap-responsive.min'
         );
     }
 
+    /**
+     * 获取外部静态js
+     * @return array
+     */
+    public static function get_static_js_list()
+    {
+        return array_merge(parent::get_static_js_list(),
+        array(
+            'vendor/jquery/jquery.min.js',
+            'vendor/bootstrap/js/bootstrap.min.js',
+            'vendor/metisMenu/metisMenu.min.js',
+            'vendor/raphael/raphael.min.js',
+            'vendor/morrisjs/morris.min.js',
+//            'data/morris-data.js',
+            'dist/js/sb-admin-2.js'
+        ));
+    }
+
+    /**
+     * 获取自定义的js
+     * @return array
+     */
     public static function get_js_list() {
         return array_merge(
             parent::get_js_list(),array(
-            'Jquery.json-2.4.min',
-            'jquery.dragsort-0.5.1.min',
-            'Bootstrap_Bootstrap.min',
-            'Admin_Common',
-            'Util',
+            'Commonjs_WindowsBase',
             'AdminFrame'
         ));
     }
 
-    public static function get_static_js_list() {
-        return array_merge(
-            parent::get_static_js_list(),array(
-            'js/jquery-1.7.1.min.js',
-        ));
-    }
-
+    /**
+     * 加了这个方法才能加载到插件里的js等等
+     * @return array
+     */
     public static function get_plugin() {
         return array(
-            'Admin_Header',
-            'Admin_Nav'
+            'Admin\LeftMenu',
+            'Admin\TopHeader',
+//            'Admin\PopFrame'
         );
     }
-    public function get_permit_nav_list($list) {
-        $permission = new Admin_Permission(KIRK::get_instance()->get_request());
-        $list =  $permission->filter_permission($list);
-        if(!$list) {
-            die('permission denied!!!');
-        }
-        return $list;
-    }
-    public static function get_name()
-    {
-        return '主页';
+
+    public function get_main_section() {
+        return "index";
     }
 
-    public function get_container()
-    {
-        return 'AdminFrame';
+    public function get_author(){
+        return 'Kirk';
     }
 
-    public function get_main_path() {
-        return '';
-    }
 }

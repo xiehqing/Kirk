@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-6-19
- * Time: 下午6:05
- */
 
 // 白名单列表
 $config["white_ip_list"] = [

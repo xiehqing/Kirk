@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kuan
- * Date: 2018/7/21
- * Time: 16:17
- */
 kirk_require_plugin('Plugin');
 class Common_PagesPlugin extends Plugin {
     public  $max_num = 10;

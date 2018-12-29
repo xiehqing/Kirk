@@ -9,7 +9,7 @@
 # 开发环境使用，线上环境需要删除该文件
 # 使用方法：
 #   建立控制器及视图的方法
-#       php Tool.php create-page app-home Home\\Index HomeFrame
+#       php Tool.php create-page app-home Home\\Index DefaultFrame
 #   建立dao
 #       php Tool.php create-dao dao_name table_name db pk
 #       php Tool.php create-dao Dao\\Home\\Notice tb_home_notice kirk id

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title-->
+    <title><?=$this->get_title()?></title>
+
+    <?php if ($this->get_author()) : ?>
+    <!-- author-->
+    <meta name="author" content="<?= $this->get_author() ?>"/>
+    <?php endif; ?>
+
+    <?php if ($this->get_keywords()) : ?>
+    <!-- keywords-->
+    <meta name="Keywords" content="<?= $this->get_keywords() ?>"/>
+    <?php endif; ?>
+
+    <!-- Bootstrap Core CSS -->
+    <?php foreach ($this->get_static_css_list() as $css): ?>
+    <link rel="stylesheet" href="<?= UrlBuilder::build_static($css) ?>" />
+    <?php endforeach; ?>
+
+    <link rel="stylesheet" rev="stylesheet" href="<?=$this->build_css_url() ?>" type="text/css"/>
+
+    <link rel="shortcut icon" href="<?=UrlBuilder::build_static('common/images/favicon.ico')?>" />
+
+</head>
+<body>
+
+<?php $this->build_content(); ?>
+
+
+<?php foreach ($this->get_static_js_list() as $js): ?>
+    <script type="text/javascript" src="<?= UrlBuilder::build_static($js); ?>"></script>
+<?php endforeach; ?>
+
+<script type="text/javascript" src="<?= $this->build_js_url() ?>"></script>
+<script>
+    var AdminBlankFrame = new Admin.BlankFrame();
+    AdminBlankFrame.init();
+</script>
+<?php $this->write_script_blocks(); ?>
+
+</body>
+</html>

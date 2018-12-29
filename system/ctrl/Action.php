@@ -20,21 +20,45 @@ class ActionCtrl extends Ctrl {
         }
     }
 
-    public function error($status = 1,$msg = "请求失败！"){
-        $result = array(
+    public function error($status = 1, $msg = ""){
+
+        $result = [
             'status' => $status,
-            'message' => $msg,
             'data' => [],
+        ];
+
+        if ($msg){
+            $result['message'] = $msg;
+        }else{
+            $result['message'] = $this->getErrorMessageByStatus($status);
+        }
+
+        return $result;
+    }
+
+    public function success($token = '',$data = [],$msg = '请求成功！'){
+        $result = array(
+            'status' => 0,
+            'message' => $msg,
+            'data' => $data,
+            'token' => $token
         );
         return $result;
     }
 
-    public function success($data = [],$msg = '请求成功！'){
-        $result = array(
-            'status' => 0,
-            'message' => $msg,
-            'data' => $data
+    private function getErrorMessageByStatus($status) {
+        $code_message_list = array(
+            1 => '请求失败',
+            2 => '参数不完整',
+            3 => '无结果',
+            4 => '参数不合法',
         );
-        return $result;
+        if (isset($code_message_list[$status])) {
+            return $code_message_list[$status];
+        } else {
+            return $code_message_list[1];
+        }
     }
+
+
 }

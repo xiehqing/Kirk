@@ -32,7 +32,43 @@ class UrlBuilder{
     }
 
     public static function build_image_url_compatible($key,$width=230,$height=230,$ext="jpg",$q=""){
+        $domain = KIRK::get_instance()->get_config('shuidi_pc_domain');
+        if(strpos($domain,'test')!==false) {
+            return "http://{$domain}/kaptcha/compress?path={$key}&width=$width&height=$height";
+        } else {
+            return self::build_image_url($key,$width,$height,$ext,$q);
+        }
+    }
 
+    public static function build_image_url($key,$width=230,$height=230,$ext="jpg",$q="",$token=false){
+        if(!$key) {
+            return '';
+        }
+        if($token) {
+            $static = KIRK::get_instance()->get_config('file_url_without_cdn');
+        } else {
+            $static = KIRK::get_instance()->get_config('file_url');
+        }
+
+        if(!$q) {
+            $image_url =  $static.'/img/'.$key."/{$width}x{$height}.{$ext}";
+        } else {
+            $image_url =  $static.'/img/'.$key."/{$width}x{$height}.{$ext}?q={$q}";
+        }
+
+        if($token) {
+            $t = time();
+            $sign = GlobalFun::sign($key.$t);
+            $token = "t={$t}&sign={$sign}";
+
+            if(strstr($image_url,'?')) {
+                $image_url.='?'.$token;
+            } else {
+                $image_url .='&'.$token;
+            }
+        }
+
+        return $image_url;
     }
 
     /**
@@ -43,9 +79,9 @@ class UrlBuilder{
      */
     public static function build_mobile_url_by_key($key,$with_domain=false){
         if (!$with_domain){
-            return "/mobile/home?key={$key}";
+            return "/mobile/dnf?key={$key}";
         }else{
-            return 'http://'.KIRK::get_instance()->get_config('domain')."/mobile/home?key={$key}";
+            return 'http://'.KIRK::get_instance()->get_config('domain')."/mobile/dnf?key={$key}";
         }
     }
 }

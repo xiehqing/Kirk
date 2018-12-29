@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-7-5
- * Time: 下午8:01
- */
 namespace Dao;
-
 
 /**
  * 用来解决表里数据过少,但是又要持续缓存过多的问题

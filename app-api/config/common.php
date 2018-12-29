@@ -2,6 +2,7 @@
 /**
  * Created by PhpStorm.
  * User: kuan
- * Date: 2018/8/13
- * Time: 16:37
+ * Date: 2018/11/13
+ * Time: 下午3:48
  */
+$config['location'] = '/api';

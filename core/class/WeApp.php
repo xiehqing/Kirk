@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirk
- * Date: 18-5-22
- * Time: 下午6:44
- */
+
 namespace core\common;
 define("TOKEN", '公众号token');
 define("APPID", '公众号APPID');

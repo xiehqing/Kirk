@@ -1,0 +1,95 @@
+
+.desktop .order-box {
+    height: 100%;
+    margin: 0;
+}
+.desktop .order-box table {
+    width: 100%;
+    min-width: 390px;
+}
+.desktop .order-box table thead tr {
+    height: 50px;
+    line-height: 50px;
+}
+.desktop .order-box table thead tr td {
+    border-bottom: 2px solid #3d6ba4;
+    border-collapse: collapse;
+    margin: 0;
+    color: #212121;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+.desktop .order-box table tbody tr {
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    color: #555555;
+}
+.desktop .order-box table tbody tr:nth-child(2n) {
+    background-color: rgba(85, 85, 85, 0.1);
+}
+.desktop .order-box table td {
+    text-align: left;
+    padding-left: 4px;
+}
+.desktop .order-box table td > div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.desktop .order-box table td .order-status-txt {
+    padding: 4px 8px;
+    border-radius: 2px;
+    color: white;
+    background-color: #333333;
+}
+.desktop .order-box table td .order-status-txt.unpay {
+    background-color: #B42F2D;
+}
+.desktop .order-box table td .order-status-txt.payed {
+    background-color: #AB956D;
+}
+.desktop .order-box table td .order-status-txt.done {
+    background-color: #57AB53;
+}
+.desktop .order-box table td .order-btn {
+    padding: 4px 15px;
+    border-radius: 2px;
+    color: white;
+    background-color: #333333;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+.desktop .order-box table td .order-btn.done {
+    background-color: #57AB53;
+}
+.desktop .order-box table td .order-btn.unstock {
+    background-color: #B42F2D;
+}
+.desktop .order-box table td .order-btn:hover {
+    box-shadow: 0 0 6px #000000;
+}
+.desktop .order-box .load-more,
+.desktop .order-box .no-more {
+    width: 100px;
+    margin: 30px auto;
+    font-size: 12px;
+    text-align: center;
+}
+.desktop .order-box .load-more {
+    padding: 5px 0;
+    cursor: pointer;
+    background-color: #777;
+    border-radius: 5px;
+    color: #fff;
+}
+.desktop .order-box .load-more:hover {
+    background-color: #555;
+}
+.desktop .order-box .no-more {
+    display: none;
+    color: #999;
+}
